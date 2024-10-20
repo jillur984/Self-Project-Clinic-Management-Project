@@ -2,12 +2,13 @@ import Loginpage from "./page/Loginpage";
 import Navbar from "./components/Navbar";
 import SignupPage from "./page/SignupPage";
 import { Routes, Route } from "react-router-dom";
-import Sheba from "./components/Sheba";
 import Homepage from "./page/Homepage";
 import Footer from "./components/Footer";
 import DoctorDetails from "./components/DoctorDetails";
 import Patient from "./components/Patient";
 import Contact from "./components/Contact";
+import Care from "./components/Care";
+
 
 const App = () => {
   return (
@@ -18,7 +19,7 @@ const App = () => {
         <Routes>
           <Route path="/doctor-details" element={<DoctorDetails />}></Route>
           <Route path="/" element={<Homepage />}></Route>
-          <Route path="/sheba" element={<Sheba />}></Route>
+          <Route path="/care" element={<Care />}></Route>
           <Route path="/patient" element={<Patient/>}></Route>
           <Route path="/contact" element={<Contact />} />
           <Route path="/signup" element={<SignupPage />} />

@@ -1,13 +1,13 @@
 import DoctorCard from "./DoctorCard";
 import Searchbar from "./Searchbar";
 
-const Sheba = () => {
+const Care = () => {
   return (
     <>
       <Searchbar />
       <div className="container flex justify-center items-start  mb-8 mt-2">
         {/* Filter Section */}
-        <div className="h-auto max-w-[20%] border rounded-md p-4 shadow-md">
+        <div className="h-auto hidden md:block max-w-[20%] border rounded-md p-4 shadow-md">
           <header>
             <h1 className="text-lg font-semibold mb-4">Filter By:</h1>
           </header>
@@ -62,4 +62,4 @@ const Sheba = () => {
   );
 };
 
-export default Sheba;
+export default Care;

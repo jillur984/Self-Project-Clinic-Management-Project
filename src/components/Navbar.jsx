@@ -9,13 +9,13 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden h-16 container bg-green-500 md:flex justify-end items-center shadow-md">
+      <nav className="hidden w-full h-16 container bg-green-500 md:flex justify-end items-center shadow-md">
         <ul className="flex gap-6 m-4 font-semibold text-black">
           <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
             <Link to="/">Home</Link>
           </li>
           <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
-            <Link to="/sheba">Care</Link>
+            <Link to="/care">Care</Link>
           </li>
           <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
             <Link to="/patient">Patient</Link>
@@ -55,7 +55,7 @@ const Navbar = () => {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/sheba">Care</Link>
+              <Link to="/care">Care</Link>
             </li>
             <li>
               <Link to="/patient">Patient</Link>
