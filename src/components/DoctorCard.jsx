@@ -4,7 +4,7 @@ import Doctor from "../assets/doctor2.jpg";
 const DoctorCard = () => {
   return (
     <>
-      <div className="container grid mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+      <div className="container grid mx-auto grid-cols-1 md:grid-cols-2  lg:grid-cols-3 xl:grid-cols-4 ">
         <div className="">
           <Link to="/doctor-details">
             <div className="bg-white shadow-lg rounded-lg p-4 w-64">

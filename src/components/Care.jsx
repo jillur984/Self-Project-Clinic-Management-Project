@@ -5,7 +5,7 @@ const Care = () => {
   return (
     <>
       <Searchbar />
-      <div className="container flex justify-center items-start  mb-8 mt-2">
+      <div className="container flex justify-center items-start mb-8 mt-2">
         {/* Filter Section */}
         <div className="h-auto hidden md:block max-w-[20%] border rounded-md p-4 shadow-md">
           <header>
@@ -54,7 +54,7 @@ const Care = () => {
         <div className="border-r-2 h-full mx-8"></div>
 
         {/* Content Section */}
-        <div className="w-[80%]">
+        <div className="w-[80%] container ">
           <DoctorCard />
         </div>
       </div>

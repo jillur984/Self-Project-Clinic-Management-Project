@@ -3,17 +3,29 @@ import SignupImage from "../assets/signup1.jpg";
 const SignupPage = () => {
   return (
     <>
-      <div className= "w-full mx-8 h-screen flex flex-col lg:flex-row justify-center items-center lg:items-start">
-        <div className="lg:max-w-[50%] w-full p-4 flex justify-center mt-12 ">
-          <img
-            src={SignupImage}
-            alt="Sign Up"
-            className="mt-12 w-full h-[325px] rounded  "
-          />
+      <div className="container grid  justify-center grid-cols-1 md:grid-cols-2 gap-5">
+        <div className="">
+          <img src={SignupImage} alt="Sign Up" className="rounded mt-5" />
         </div>
-        <div className="bg-gray-400 p-6 rounded-lg w-full lg:max-w-[50%] mx-4 md:mt-28 mr-6">
+        <div className="order-1 md:order-2 mt-5">
           <h1 className="text-center text-2xl font-bold ">Sign Up</h1>
           <form className="mt-5">
+          <div className="mb-4">
+              <input
+                type="text"
+                id="fName"
+                className="block mx-auto w-full h-10 px-2 border rounded"
+                placeholder="First Name"
+              />
+            </div>
+            <div className="mb-4">
+              <input
+                type="text"
+                id="lName"
+                className="block mx-auto w-full h-10 px-2 border rounded"
+                placeholder="LastName"
+              />
+            </div>
             <div>
               <input
                 type="email"

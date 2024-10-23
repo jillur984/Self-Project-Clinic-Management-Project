@@ -33,3 +33,7 @@ body{
 .bounce-animation {
   animation: bounce 1.2s infinite;
 }
+
+.auth-input{
+  @apply w-full px-4 py-2 border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent
+}

@@ -1,6 +1,9 @@
 import Doctor from '../assets/doctor2.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const DoctorDetails = () => {
+
+  const navigate=useNavigate()
   return (
     <div className="container mx-auto w-full flex flex-col md:flex-row p-4">
       {/* Doctor Image Section */}
@@ -37,7 +40,7 @@ const DoctorDetails = () => {
           MBBS (Mymensingh Medical College), BCS (Health), FCPS, PJT
         </p>
 
-        <button className="w-full h-12 bg-yellow-300 text-gray-800 font-bold rounded-lg hover:bg-yellow-400 transition duration-300">
+        <button onClick={()=>navigate("/login")} className="w-full h-12 bg-yellow-300 text-gray-800 font-bold rounded-lg hover:bg-yellow-400 transition duration-300">
           Appointment Now
         </button>
       </div>
