@@ -58,7 +58,7 @@ const Care = () => {
         </div>
         {/* Card Section Wokr */}
 
-        <div className="flex flex-wrap w-full items-center flex-col md:flex-row">
+        <div className="flex flex-wrap gap-y-5 mb-4 w-full items-center flex-col md:flex-row md:gap-2">
           <div className="flex">
             <Link to="/doctor-details">
               <div className="bg-white shadow-lg rounded-lg p-4 w-64">
