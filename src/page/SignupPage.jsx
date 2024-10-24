@@ -46,7 +46,7 @@ const SignupPage = () => {
               <input
                 type="password"
                 id="confirm-password"
-                className="block mx-auto w-full h-10 px-2 border rounded"
+                className="block mx-auto w-full h-10 px-2 border rounded outline-none"
                 placeholder="Confirm Password"
               />
             </div>

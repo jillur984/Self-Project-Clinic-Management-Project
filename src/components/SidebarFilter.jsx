@@ -2,7 +2,8 @@ import DoctorCard from "./DoctorCard";
 
 const SidebarFilter = () => {
   return (
-    <div className="container w-full flex justify-center place-content-center items-center mr-24 mb-2 md:mb-8 mt-2">
+  <>
+   <div className="container w-full flex justify-center  items-center mr-24 mb-2 md:mb-8 mt-2">
     {/* Filter Section */}
     <div className="h-auto hidden md:block max-w-[20%] border rounded-md p-4 shadow-md">
       <header>
@@ -51,12 +52,14 @@ const SidebarFilter = () => {
     <div className="border-r-2 h-full mx-8"></div>
 
     {/* Doctor Card Section */}
-   
-     <div className="">
+    <div className="">
      <DoctorCard />
      </div>
     
+    
   </div>
+  
+  </>
   )
 }
 

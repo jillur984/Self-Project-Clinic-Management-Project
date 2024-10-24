@@ -22,40 +22,42 @@ const handelLogout=()=>{
   return (
     <>
       {/* Desktop Navigation */}
-      <nav className="hidden w-full h-16 container bg-green-600 md:flex justify-end items-center shadow-md">
-        <ul className="flex gap-6 m-4 font-semibold text-black">
-          <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
-            <Link to="/care">Care</Link>
-          </li>
-          <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
-            <Link to="/patient">Patient</Link>
-          </li>
-          <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
-            <Link to="/contact">Contact</Link>
-          </li>
-          <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
-            <Link to="/report">Report</Link>
-          </li>
-          <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
-            <Link to="/signup">Internship Care</Link>
-          </li>
-          <div className="h-auto">
-            <span>
-              <img
-                onClick={() => setModalOpen(true)} // Open modal on image click
-                src={Jillur}
-                alt="Profile"
-                className="h-10 border rounded-full cursor-pointer"
-              />
-            </span>
-          </div>
-        </ul>
-      </nav>
+      <div className="bg-blue-200 w-full">
+        <nav className="hidden container md:flex justify-end items-center shadow-md">
+          <ul className="flex gap-6 m-4 font-semibold text-black">
+            <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
+              <Link to="/care">Care</Link>
+            </li>
+            <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
+              <Link to="/patient">Patient</Link>
+            </li>
+            <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
+              <Link to="/contact">Contact</Link>
+            </li>
+            <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
+              <Link to="/report">Report</Link>
+            </li>
+            <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
+              <Link to="/signup">Internship Care</Link>
+            </li>
+            <div className="h-auto">
+              <span>
+                <img
+                  onClick={() => setModalOpen(true)} // Open modal on image click
+                  src={Jillur}
+                  alt="Profile"
+                  className="h-10 border rounded-full cursor-pointer"
+                />
+              </span>
+            </div>
+          </ul>
+        </nav>
 
-      {/* Modal for Profile */}
+
+        {/* Modal for Profile */}
       {modalOpen && (
         <>
           {/* Modal content */}
@@ -118,6 +120,10 @@ const handelLogout=()=>{
           </ul>
         </div>
       )}
+      </div>
+     
+
+      
     </>
   );
 };
