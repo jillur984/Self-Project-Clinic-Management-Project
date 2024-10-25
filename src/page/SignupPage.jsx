@@ -1,55 +1,139 @@
+import { useForm} from "react-hook-form";
+import { useRef } from "react";
 import SignupImage from "../assets/signup1.jpg";
 
 const SignupPage = () => {
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    watch
+  } = useForm();
+
+  const submitForm = (formData) => {
+    console.log(formData);
+  };
+
+  const password = useRef({});
+  password.current = watch("password", "");
+
   return (
     <>
       <div className="container grid  justify-center grid-cols-1 md:grid-cols-2 gap-5">
         <div className="">
-          <img src={SignupImage} alt="Sign Up" className="rounded mt-5" />
+          <img src={SignupImage} alt="Sign Up" className="rounded mt-5 mb-5" />
         </div>
-        <div className="order-1 md:order-2 mt-5">
-          <h1 className="text-center text-2xl font-bold ">Sign Up</h1>
-          <form className="mt-5">
-          <div className="mb-4">
-              <input
-                type="text"
-                id="fName"
-                className="block mx-auto w-full h-10 px-2 border rounded"
-                placeholder="First Name"
-              />
-            </div>
+        <div className="order-1 md:order-2 mt-5 ">
+          <h1 className="text-center text-2xl font-bold ">SIGN UP</h1>
+          <form className="mt-5" onSubmit={handleSubmit(submitForm)}>
             <div className="mb-4">
               <input
+                {...register("fName", {
+                  required: "Please Enter your First Name",
+                })}
+                type="text"
+                id="fName"
+                name="fName"
+                className={`auth-input ${
+                  !!errors.fName
+                    ? "border-red-500 focus:ring-red-500"
+                    : "border-gray-300 focus:ring-blue-500"
+                }`}
+                placeholder="Enter your FirstName"
+              />
+            </div>
+            {errors.fName && (
+              <p className="text-red-500 text-xs mt-1 pb-2">
+                {errors.fName.message}
+              </p>
+            )}
+            <div className="mb-4">
+              <input
+                {...register("lName", { required: "Please Enter Your Last Name" })}
                 type="text"
                 id="lName"
-                className="block mx-auto w-full h-10 px-2 border rounded"
+                name="lName"
+                className={`auth-input ${
+                  !!errors.lName
+                    ? "border-red-500 focus:ring-red-500"
+                    : "border-gray-300 focus:ring-blue-500"
+                }`}
                 placeholder="LastName"
               />
             </div>
+            {errors.lName && (
+              <p className="text-red-500 text-xs mt-1 pb-2">
+                {errors.lName.message}
+              </p>
+            )}
             <div>
               <input
+                {...register("email", {
+                  required: "Email Address is Required",
+                })}
                 type="email"
                 id="email"
-                className="block mx-auto w-full h-10 px-2 border rounded"
-                placeholder="Email"
+                name="email"
+                className={`auth-input ${
+                  !!errors.email
+                    ? "border-red-500 focus:ring-red-500"
+                    : "border-gray-300 focus:ring-blue-500"
+                }`}
+                placeholder="Enter Your Email"
               />
             </div>
+            {errors.email && (
+              <p className="text-red-500 text-xs mt-1 pb-2">
+                {errors.email.message}
+              </p>
+            )}
             <div className="mt-4">
               <input
+                {...register("password", {
+                  required: "Password is Required",
+                  minLength: {
+                    value: 8,
+                    message: "Password must be at least 8 character",
+                  },
+                })}
                 type="password"
                 id="password"
-                className="block mx-auto w-full h-10 px-2 border rounded"
-                placeholder="Password"
+                name="password"
+                className={`auth-input ${
+                  !!errors.password
+                    ? "border-red-500 focus:ring-red-500"
+                    : "border-gray-300 focus:ring-blue-500"
+                }`}
+                placeholder="Enter Your Password"
               />
             </div>
+            {errors.password && (
+              <p className="text-red-500 text-xs mt-1 pb-2">
+                {errors.password.message}
+              </p>
+            )}
             <div className="mt-4">
               <input
+                {...register("confirmPassword", {
+                  validate: (value) =>
+                    value === password.current || "The passwords do not match",
+                })}
                 type="password"
-                id="confirm-password"
-                className="block mx-auto w-full h-10 px-2 border rounded outline-none"
-                placeholder="Confirm Password"
+                id="confirmPassword"
+                name="confirmPassword"
+                className={`auth-input ${
+                  !!errors.confirmPassword
+                    ? "border-red-500 focus:ring-red-500"
+                    : "border-gray-300 focus:ring-blue-500"
+                }`}
+                placeholder="Confirm Your Password"
               />
             </div>
+            {errors.confirmPassword && (
+              <p className="text-red-500 text-xs mt-1 pb-2">
+                {errors.confirmPassword.message}
+              </p>
+            )}
             <button className="w-full mt-6 h-10 bg-green-600 text-white rounded">
               Sign Up
             </button>

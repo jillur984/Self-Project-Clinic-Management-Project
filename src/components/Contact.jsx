@@ -1,19 +1,19 @@
-import HospitalImage from "../assets/hospital.jpg";
+import HospitalImage from "../assets/hospital1.jpg";
 import LocationIcon from "../assets/location.png";
 import HelpLineIcon from "../assets/helpline.png";
 import EmailIcon from "../assets/email.png";
 
 const Contact = () => {
   return (
-    <section className="container mx-auto ">
+    <section className="container ">
       {/* Header Image with Overlayed Text */}
       <div className="relative">
         <img
           src={HospitalImage}
           alt="Hospital"
-          className="h-48 w-full object-cover"
+          className="w-full h-64"
         />
-        <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-red-600 text-3xl font-bold">
+        <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-yellow-500 text-3xl font-bold">
           Contact Us
         </span>
       </div>
@@ -51,7 +51,7 @@ const Contact = () => {
           <div>
             <h2 className="font-semibold text-xl mb-1">Hotline</h2>
             <p className="text-gray-700">+8801734634864</p>
-            <p className="text-gray-700">+8801916182025</p>
+            
           </div>
         </div>
 
@@ -114,7 +114,7 @@ const Contact = () => {
                   className="w-full p-4 "
                 />
               </div>
-              <div>
+              <div className="">
                 <label htmlFor="message" className="text-gray-600 font-bold">
                   Your Message:
                 </label>
@@ -122,10 +122,10 @@ const Contact = () => {
                 <textarea
                   name="message"
                   id="message"
-                  className="w-full p-7 h-40"
+                  className="w-full p-7 h-40 bg-gray-100"
                 ></textarea>
               </div>
-              <button className="bg-orange-700 rounded-md p-2 hover:bg-yellow-500 mt-4">
+              <button className="bg-black  text-white rounded-md w-[30%] hover:bg-gray-700 p-1 mt-4 mb-4">
                 Send
               </button>
             </form>
