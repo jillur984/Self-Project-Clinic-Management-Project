@@ -60,7 +60,7 @@ const PatientEntry = () => {
                 type="tel"
                 name="phone"
                 id="phone"
-                className="w-full md:w-[80%] p-2 border rounded shadow-sm"
+                className="w-full md:w-[50%] p-2 border rounded shadow-sm"
                 placeholder="Your Phone Number"
               />
             </div>
@@ -74,7 +74,7 @@ const PatientEntry = () => {
                 type="date"
                 name="dob"
                 id="dob"
-                className="w-full md:w-[80%] p-2 border rounded shadow-sm"
+                className="w-full md:w-[50%] p-2 border rounded shadow-sm"
               />
             </div>
   
@@ -88,7 +88,7 @@ const PatientEntry = () => {
                 type="text"
                 name="address"
                 id="address"
-                className="w-full md:w-[80%] p-2 border rounded shadow-sm"
+                className="w-full md:w-[50%] p-2 border rounded shadow-sm"
                 placeholder="Give Your Address"
               />
             </div>
