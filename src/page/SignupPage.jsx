@@ -1,38 +1,42 @@
-import { useForm} from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { useRef } from "react";
 import SignupImage from "../assets/signup1.jpg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../hooks/useAuth";
 
 const SignupPage = () => {
-
-  const navigate=useNavigate()
+  const navigate = useNavigate();
+  const {setAuth}=useAuth()
 
   const {
     register,
     formState: { errors },
     handleSubmit,
-    watch,setError
+    watch,
+    setError,
   } = useForm();
 
-  const submitForm =async(formData) => {
-   try{
-    // let response=await axios.post(`${import.meta.env.VITE_SERVER_BASE_URL}/auth/local/register`,formData)
-   let response=await axios.post(`https://clinical-api-jillur-m.onrender.com/api/v1/auth/local/register`,formData)
-    
-   console.log("my sub mit response ------------->>>", response);
-   if(response.status===201){
-    
-     navigate('/login')
+  const submitForm = async (formData) => {
+    try {
+      let response = await axios.post(
+        `${import.meta.env.VITE_SERVER_BASE_URL}/auth/local/register`,
+        formData,{
+          headers: { "Content-Type": "application/json" }
+        }
+      );
+
+      if (response.status === 201) {
+        setAuth
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error(error);
+      setError("root".random, {
+        type: "random",
+        message: `SomeThing Went Wrong ${error.message}`,
+      });
     }
-   }
-   catch(error){
-    console.error(error);
-    setError("root".random, {
-      type: "random",
-      message: `SomeThing Went Wrong ${error.message}`,
-    });
-   }
   };
 
   const password = useRef({});
@@ -70,7 +74,9 @@ const SignupPage = () => {
             )}
             <div className="mb-4">
               <input
-                {...register("lName", { required: "Please Enter Your Last Name" })}
+                {...register("lName", {
+                  required: "Please Enter Your Last Name",
+                })}
                 type="text"
                 id="lName"
                 name="lName"

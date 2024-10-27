@@ -7,7 +7,7 @@ import { useAuth } from "../hooks/useAuth";
 
 const Navbar = () => {
 
-  const{auth}=useAuth()
+  const{auth,setAuth}=useAuth()
 
   console.log(auth)
 
@@ -22,6 +22,7 @@ const Navbar = () => {
   };
 
   const handelLogout = () => {
+    setAuth({})
     navigate("/login");
     setModalOpen(false);
   };

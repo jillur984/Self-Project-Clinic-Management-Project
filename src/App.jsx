@@ -9,6 +9,7 @@ import Patient from "./components/Patient";
 import Contact from "./components/Contact";
 import Care from "./components/Care";
 import PatientEntry from "./components/PatientEntry";
+import PrivateRoutes from "./routes/PrivateRoutes";
 
 
 const App = () => {
@@ -16,8 +17,12 @@ const App = () => {
     <>
       <div className="container mx-auto px-4">
         <Navbar />
+        
         <Routes>
+          <Route element={<PrivateRoutes/>}>
           <Route path="/care" element={<Care />} />
+          </Route>
+          
           <Route path="/patient" element={<Patient />} />
           <Route path="/patient-entry" element={<PatientEntry/>} />
           <Route path="/doctor-details" element={<DoctorDetails />} />

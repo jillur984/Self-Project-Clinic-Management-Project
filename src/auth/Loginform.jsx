@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../hooks/useAuth";
+import axios from "axios";
 
 const Loginform = () => {
   const navigate = useNavigate();
 
-  const{setAuth}=useAuth()
+  const { setAuth } = useAuth();
 
   const {
     register,
@@ -14,10 +15,30 @@ const Loginform = () => {
     setError,
   } = useForm();
 
-  const submitForm = (formData) => {
-    const user={...formData}
-    setAuth({user})
-    navigate("/")
+  const submitForm = async (formData) => {
+    const response = await axios.post(
+      `${import.meta.env.VITE_SERVER_BASE_URL}/auth/local/login`,
+      formData,
+      { headers: { "Content-Type": "application/json" } }
+    );
+
+    if (response.status === 200) {
+      const { data, access_token } = response.data;
+      try {
+        if (access_token) {
+          const authToken = access_token;
+          console.log(`Login Time Auth Token ${authToken}`);
+          setAuth({ data, access_token });
+          navigate("/");
+        }
+      } catch (error) {
+        console.error(error);
+        setError("root".random, {
+          type: "random",
+          message: `User with email ${formData.email} is not found`,
+        });
+      }
+    }
   };
 
   return (
