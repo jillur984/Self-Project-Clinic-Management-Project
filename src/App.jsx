@@ -8,6 +8,7 @@ import DoctorDetails from "./components/DoctorDetails";
 import Patient from "./components/Patient";
 import Contact from "./components/Contact";
 import Care from "./components/Care";
+import PatientEntry from "./components/PatientEntry";
 
 
 const App = () => {
@@ -15,12 +16,13 @@ const App = () => {
     <>
       <div className="container mx-auto px-4">
         <Navbar />
-
         <Routes>
-          <Route path="/doctor-details" element={<DoctorDetails />}></Route>
-          <Route path="/" element={<Homepage />}></Route>
-          <Route path="/care" element={<Care />}></Route>
-          <Route path="/patient" element={<Patient/>}></Route>
+          <Route path="/care" element={<Care />} />
+          <Route path="/patient" element={<Patient />} />
+          <Route path="/patient-entry" element={<PatientEntry/>} />
+          <Route path="/doctor-details" element={<DoctorDetails />} />
+
+          <Route path="/" element={<Homepage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/login" element={<Loginpage />} />

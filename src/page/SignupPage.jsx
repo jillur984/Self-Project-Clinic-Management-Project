@@ -1,17 +1,38 @@
 import { useForm} from "react-hook-form";
 import { useRef } from "react";
 import SignupImage from "../assets/signup1.jpg";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
+
+  const navigate=useNavigate()
+
   const {
     register,
     formState: { errors },
     handleSubmit,
-    watch
+    watch,setError
   } = useForm();
 
-  const submitForm = (formData) => {
-    console.log(formData);
+  const submitForm =async(formData) => {
+   try{
+    // let response=await axios.post(`${import.meta.env.VITE_SERVER_BASE_URL}/auth/local/register`,formData)
+   let response=await axios.post(`https://clinical-api-jillur-m.onrender.com/api/v1/auth/local/register`,formData)
+    
+   console.log("my sub mit response ------------->>>", response);
+   if(response.status===201){
+    
+     navigate('/login')
+    }
+   }
+   catch(error){
+    console.error(error);
+    setError("root".random, {
+      type: "random",
+      message: `SomeThing Went Wrong ${error.message}`,
+    });
+   }
   };
 
   const password = useRef({});
@@ -66,7 +87,7 @@ const SignupPage = () => {
                 {errors.lName.message}
               </p>
             )}
-            <div>
+            <div className="mt-4">
               <input
                 {...register("email", {
                   required: "Email Address is Required",

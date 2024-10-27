@@ -1,7 +1,9 @@
 import PatientSummaryCard from "./PatientSummaryCard";
 import PatientTable from "./PatientTable";
+import { useNavigate } from "react-router-dom";
 
 const Patient = () => {
+  const navigate = useNavigate();
   return (
     <>
       <section className="container">
@@ -17,7 +19,7 @@ const Patient = () => {
 
         <PatientSummaryCard />
         <div className="border border-gray-300 mx-2 mb-2">
-          <div className="flex container">
+          <div className="flex">
             <div className=" mt-8 mb-10 w-[20%] ">
               <input
                 type="text"
@@ -51,7 +53,7 @@ const Patient = () => {
               />
             </div>
             <div className="border border-gray-300 h-16 mt-7 w-[20%] bg-green-500 relative hover:bg-gray-400">
-              <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer ">
+              <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer">
                 FILTER
               </button>
             </div>
@@ -60,7 +62,10 @@ const Patient = () => {
         </div>
         <div className="flex justify-end items-end mt-12 mb-5 relative">
           <div className="relative h-16 w-16">
-            <button className="flex items-center justify-center border h-18 w-18 bg-blue-600 rounded-full font-bold absolute inset-0 m-auto bounce-animation">
+            <button
+              className="flex items-center justify-center border h-18 w-18 bg-blue-600 rounded-full font-bold absolute inset-0 m-auto bounce-animation"
+              onClick={()=>navigate("/patient-entry")}
+            >
               +
             </button>
           </div>

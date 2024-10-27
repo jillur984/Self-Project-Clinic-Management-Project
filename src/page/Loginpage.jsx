@@ -1,8 +1,8 @@
 import DiaganosticIcon from "../assets/diaganostic.svg";
 import ClinicLogo from "../assets/clinic_home.svg";
-import Loginform from '../auth/Loginform'
+import Loginform from "../auth/Loginform";
 
-const Loginpage = () => { 
+const Loginpage = () => {
   return (
     <>
       <section className="container flex flex-col md:flex-row lg:basis-[50%] ">
@@ -12,7 +12,11 @@ const Loginpage = () => {
           <div className="mt-10 p-10">
             <div className="flex items-center justify-center gap-1 ">
               <div>
-                <img src={DiaganosticIcon} alt="" className="w-8 mx-auto rounded-lg " />
+                <img
+                  src={DiaganosticIcon}
+                  alt=""
+                  className="w-8 mx-auto rounded-lg "
+                />
               </div>
               <h2 className="text-1xl text-blue-600">
                 <span className="text-purple-800">Popular</span> Diaganostic
@@ -28,7 +32,7 @@ const Loginpage = () => {
           </div>
         </div>
         {/* Login Page Right */}
-        <Loginform/>
+        <Loginform />
       </section>
     </>
   );

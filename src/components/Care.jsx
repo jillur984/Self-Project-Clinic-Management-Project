@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Doctor from "../assets/doctor2.jpg";
 
 const Care = () => {
+
   return (
     <section className="container">
       <div className="flex justify-center mt-8 mb-4">

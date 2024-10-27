@@ -3,8 +3,15 @@ import { useNavigate } from "react-router-dom";
 import Jillur from "../assets/jillur.jpg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
+import { useAuth } from "../hooks/useAuth";
 
 const Navbar = () => {
+
+  const{auth}=useAuth()
+
+  console.log(auth)
+
+
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false); // Boolean state for modal
@@ -61,7 +68,7 @@ const Navbar = () => {
           <>
             {/* Modal content */}
             <div className="fixed top-10 right-16 bg-white border rounded-md shadow-lg p-2 w-48 z-50">
-              <h1 className="text-lg font-semibold mb-2 cursor-pointer">
+              <h1 className="text-lg text-black font-semibold mb-2 cursor-pointer">
                 My Profile
               </h1>
               <span
