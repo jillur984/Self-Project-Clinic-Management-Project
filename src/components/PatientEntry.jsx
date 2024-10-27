@@ -139,8 +139,8 @@ const PatientEntry = () => {
           </div>
           {/* Submit Form */}
 
-          <button className="border border-gray-950  rounded-xl bg-yellow-500 font-bold hover:bg-purple-600 p-5 flex mx-auto">
-            Submit Your Form
+          <button className="border border-gray-950  rounded-xl bg-yellow-500 font-bold hover:bg-purple-600 p-3 w-[50%] text-center items-center flex mx-auto">
+           <span className="block mx-auto"> Submit Your Form</span>
           </button>
         </form>
       </section>
