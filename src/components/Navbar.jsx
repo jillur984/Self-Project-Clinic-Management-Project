@@ -6,11 +6,9 @@ import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 
 const Navbar = () => {
+  const { auth, setAuth } = useAuth();
 
-  const{auth,setAuth}=useAuth()
-
-  console.log(auth)
-
+  console.log(auth);
 
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +20,7 @@ const Navbar = () => {
   };
 
   const handelLogout = () => {
-    setAuth({})
+    setAuth({});
     navigate("/login");
     setModalOpen(false);
   };
@@ -30,8 +28,8 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <div className="bg-gray-400 text-white w-full">
-        <nav className="hidden container md:flex justify-end items-center shadow-md">
+      <div className="bg-gray-400 container text-white w-full">
+        <nav className="hidden md:flex justify-end items-center shadow-md">
           <ul className="flex gap-6 m-4 font-semibold text-black">
             <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
               <Link to="/">Home</Link>
@@ -51,16 +49,21 @@ const Navbar = () => {
             <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
               <Link to="/signup">Internship Care</Link>
             </li>
-            <div className="h-auto">
-              <span>
-                <img
-                  onClick={() => setModalOpen(true)} // Open modal on image click
-                  src={Jillur}
-                  alt="Profile"
-                  className="h-10 border rounded-full cursor-pointer"
-                />
-              </span>
-            </div>
+            {auth?.data?.id && (
+              <div className="h-auto">
+                <span className="flex gap-2 justify-center">
+                  <img
+                    onClick={() => setModalOpen(true)} // Open modal on image click
+                    src={Jillur}
+                    alt="Profile"
+                    className="h-10 border rounded-full cursor-pointer"
+                  />
+                  <span className="flex lg:mt-2">
+                    {auth?.data?.username}({auth?.data?.role})
+                  </span>
+                </span>
+              </div>
+            )}
           </ul>
         </nav>
 
@@ -122,12 +125,17 @@ const Navbar = () => {
                 <Link to="/signup">Internship Care</Link>
               </li>
               <div className="flex items-center justify-center">
-                <img
-                  onClick={() => setModalOpen(true)} // Open modal on mobile too
-                  src={Jillur}
-                  alt="Profile"
-                  className="h-10 border rounded-full cursor-pointer"
-                />
+                <div className="flex items-center">
+                  <img
+                    onClick={() => setModalOpen(true)} // Open modal on mobile too
+                    src={Jillur}
+                    alt="Profile"
+                    className="h-10 border flex rounded-full cursor-pointer"
+                  />
+                  <span className="flex lg:mt-2">
+                    {auth?.data?.username} {auth?.data?.role}
+                  </span>
+                </div>
               </div>
             </ul>
           </div>
