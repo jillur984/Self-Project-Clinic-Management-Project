@@ -124,19 +124,21 @@ const Navbar = () => {
               <li>
                 <Link to="/signup">Internship Care</Link>
               </li>
-              <div className="flex items-center justify-center">
-                <div className="flex items-center">
-                  <img
-                    onClick={() => setModalOpen(true)} // Open modal on mobile too
-                    src={Jillur}
-                    alt="Profile"
-                    className="h-10 border flex rounded-full cursor-pointer"
-                  />
-                  <span className="flex lg:mt-2">
-                    {auth?.data?.username} {auth?.data?.role}
-                  </span>
-                </div>
+             {
+              auth?.data?.id &&  <div className="flex items-center justify-center">
+              <div className="flex items-center">
+                <img
+                  onClick={() => setModalOpen(true)} // Open modal on mobile too
+                  src={Jillur}
+                  alt="Profile"
+                  className="h-10 border flex rounded-full cursor-pointer"
+                />
+                <span className="flex lg:mt-2">
+                  {auth?.data?.username} {auth?.data?.role}
+                </span>
               </div>
+            </div>
+             }
             </ul>
           </div>
         )}
