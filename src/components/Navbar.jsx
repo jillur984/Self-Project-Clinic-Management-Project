@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Jillur from "../assets/jillur.jpg";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 
@@ -28,25 +29,25 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <div className="bg-gray-400 container text-white w-full">
+      <div className="bg-black text-white container">
         <nav className="hidden md:flex justify-end items-center shadow-md">
-          <ul className="flex gap-6 m-4 font-semibold text-black">
-            <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
+          <ul className="flex gap-6 m-4 font-semibold ">
+            <li className="hover:bg-white hover:text-black p-2 rounded-sm transition duration-300 ">
               <Link to="/">Home</Link>
             </li>
-            <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
+            <li className="hover:bg-white hover:text-black p-2 rounded-sm transition duration-300">
               <Link to="/care">Care</Link>
             </li>
-            <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
+            <li className="hover:bg-white hover:text-black p-2 rounded-sm transition duration-300">
               <Link to="/patient">Patient</Link>
             </li>
-            <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
+            <li className="hover:bg-white hover:text-black p-2 rounded-sm transition duration-300">
               <Link to="/contact">Contact</Link>
             </li>
-            <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
+            <li className="hover:bg-white hover:text-black p-2 rounded-sm transition duration-300">
               <Link to="/report">Report</Link>
             </li>
-            <li className="hover:bg-green-700 p-2 rounded-md transition duration-300">
+            <li className="hover:bg-white hover:text-black p-2 rounded-sm transition duration-300">
               <Link to="/signup">Internship Care</Link>
             </li>
             {auth?.data?.id && (
@@ -97,17 +98,21 @@ const Navbar = () => {
         )}
 
         {/* Mobile Navigation */}
-        <div className="md:hidden w-full bg-green-600 items-center flex justify-end mr-3">
+        <div className="md:hidden w-full bg-black items-center flex justify-end ">
           <button onClick={() => setIsOpen(!isOpen)}>
-            <GiHamburgerMenu className="text-white" />
+          {
+            isOpen ? (  <IoMdClose className="text-white m-1 text-2xl" />) :(<GiHamburgerMenu className="text-white m-1 text-2xl"/>)
+          }
+          
           </button>
         </div>
 
         {isOpen && (
-          <div className="h-auto w-full text-center bg-green-600 flex md:hidden flex-col justify-end">
-            <ul className="flex flex-col gap-6 m-4 font-semibold text-black">
-              <li>
-                <Link to="/">Home</Link>
+          <div className="w-full text-center bg-black flex md:hidden flex-col justify-end">
+            <ul className="flex flex-col gap-6 m-4 font-semibold text-white">
+              
+              <li className=" hover:bg-white hover:text-black active:bg-white active:text-black">
+                <Link to="/" className="">Home</Link>
               </li>
               <li>
                 <Link to="/care">Care</Link>
