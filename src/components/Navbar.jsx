@@ -29,9 +29,9 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <div className="bg-black text-white container">
-        <nav className="hidden md:flex justify-end items-center shadow-md">
-          <ul className="flex gap-6 m-4 font-semibold ">
+      <div className=" text-white container">
+        <nav className="hidden md:flex justify-end items-center shadow-md navbar">
+          <ul className="menu menu-horizontal flex gap-6 m-4 font-semibold ">
             <li className="hover:bg-white hover:text-black p-2 rounded-sm transition duration-300 ">
               <Link to="/">Home</Link>
             </li>

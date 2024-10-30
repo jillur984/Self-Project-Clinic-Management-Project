@@ -4,13 +4,13 @@ const Homepage = () => {
   return (
     <>
       <div>
-        <div className="overflow-hidden whitespace-nowrap bg-blue-500 text-white py-2 w-full">
+        <div className="overflow-hidden whitespace-nowrap bg-black-500 text-white py-2 w-full">
           <p className="inline-block pl-[100%] animate-marquee text-xl font-bold ">
             🎉 Special Offer! Get 50% Discount on X-Ray Services at Our Clinic!
             🏥
           </p>
         </div>
-        <div className="">
+        <div className="Object-fit">
           <img src={MedicalImage} alt="" className="w-full h-96" />
         </div>
         <Care/>

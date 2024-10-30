@@ -15,7 +15,7 @@ import PrivateRoutes from "./routes/PrivateRoutes";
 const App = () => {
   return (
     <>
-      <div className="container mx-auto px-4">
+      <div className="container bg-[#171d32] mx-auto px-4">
         <Navbar />
         
         <Routes>
