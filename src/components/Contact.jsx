@@ -13,15 +13,15 @@ const Contact = () => {
           alt="Hospital"
           className="w-full h-64"
         />
-        <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-yellow-500 text-3xl font-bold">
+        <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-3xl font-bold">
           Contact Us
         </span>
       </div>
 
       {/* Introduction Text */}
       <div className="text-center mt-5 mb-16 w-full">
-        <h1 className="font-bold text-2xl text-gray-900">Let's Get in Touch</h1>
-        <p className="text-gray-500 text-lg">
+        <h1 className="font-bold text-2xl text-white">Let's Get in Touch</h1>
+        <p className="text-gray-500 text-lg text-white">
           We are open for any suggestions or just to have a chat
         </p>
       </div>

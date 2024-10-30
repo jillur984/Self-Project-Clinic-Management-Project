@@ -20,7 +20,7 @@ const Care = () => {
       </div>
       <div className="flex gap-5 ">
         {/* Sidebar filter Work */}
-        <div className="hidden md:block p-3 basis-[20%] ">
+        <div className="hidden md:block p-3 basis-[18%] ">
           <header>
             <h1 className="text-lg text-white font-bold mb-4">Filter By:</h1>
           </header>
@@ -63,6 +63,9 @@ const Care = () => {
               </div>
             ))}
           </fieldset>
+        </div>
+        <div className="bg-white h-screen flex items-center justify-center">
+          <div className="border-l border-gray-300 h-36"></div>
         </div>
 
         {/*Doctor Card Section Work */}

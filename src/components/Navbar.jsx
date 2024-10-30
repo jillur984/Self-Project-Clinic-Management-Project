@@ -72,8 +72,8 @@ const Navbar = () => {
         {modalOpen && (
           <>
             {/* Modal content */}
-            <div className="fixed top-10 right-16 bg-white border rounded-md shadow-lg p-2 w-48 z-50">
-              <h1 className="text-lg text-black font-semibold mb-2 cursor-pointer">
+            <div className="fixed top-10 right-16 bg-black border rounded-md shadow-lg p-2 w-48 z-50">
+              <h1 className="text-lg text-white font-semibold mb-2 cursor-pointer">
                 My Profile
               </h1>
               <span
@@ -100,19 +100,21 @@ const Navbar = () => {
         {/* Mobile Navigation */}
         <div className="md:hidden w-full bg-black items-center flex justify-end ">
           <button onClick={() => setIsOpen(!isOpen)}>
-          {
-            isOpen ? (  <IoMdClose className="text-white m-1 text-2xl" />) :(<GiHamburgerMenu className="text-white m-1 text-2xl"/>)
-          }
-          
+            {isOpen ? (
+              <IoMdClose className="text-white m-1 text-2xl" />
+            ) : (
+              <GiHamburgerMenu className="text-white m-1 text-2xl" />
+            )}
           </button>
         </div>
 
         {isOpen && (
           <div className="w-full text-center bg-black flex md:hidden flex-col justify-end">
             <ul className="flex flex-col gap-6 m-4 font-semibold text-white">
-              
               <li className=" hover:bg-white hover:text-black active:bg-white active:text-black">
-                <Link to="/" className="">Home</Link>
+                <Link to="/" className="">
+                  Home
+                </Link>
               </li>
               <li className="hover:bg-white hover:text-black active:bg-white active:text-black">
                 <Link to="/care">Care</Link>
@@ -129,21 +131,21 @@ const Navbar = () => {
               <li className="hover:bg-white hover:text-black active:bg-white active:text-black">
                 <Link to="/signup">Internship Care</Link>
               </li>
-             {
-              auth?.data?.id &&  <div className="flex items-center justify-center">
-              <div className="flex items-center">
-                <img
-                  onClick={() => setModalOpen(true)} // Open modal on mobile too
-                  src={Jillur}
-                  alt="Profile"
-                  className="h-10 border flex rounded-full cursor-pointer"
-                />
-                <span className="flex lg:mt-2">
-                  {auth?.data?.username} {auth?.data?.role}
-                </span>
-              </div>
-            </div>
-             }
+              {auth?.data?.id && (
+                <div className="flex items-center justify-center">
+                  <div className="flex items-center">
+                    <img
+                      onClick={() => setModalOpen(true)} // Open modal on mobile too
+                      src={Jillur}
+                      alt="Profile"
+                      className="h-10 border flex rounded-full cursor-pointer"
+                    />
+                    <span className="flex lg:mt-2">
+                      {auth?.data?.username} {auth?.data?.role}
+                    </span>
+                  </div>
+                </div>
+              )}
             </ul>
           </div>
         )}

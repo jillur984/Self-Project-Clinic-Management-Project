@@ -15,7 +15,7 @@ const Loginpage = () => {
                 <img
                   src={DiaganosticIcon}
                   alt=""
-                  className="w-8 mx-auto rounded-lg "
+                  className="md:w-8 mx-auto rounded-lg "
                 />
               </div>
               <h2 className="text-1xl text-blue-600">
