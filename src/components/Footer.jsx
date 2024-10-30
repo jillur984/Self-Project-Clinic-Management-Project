@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className="bg-gray-200 text-gray-700 py-6 container w-[100%]">
+    <footer className="bg-black text-gray-700 py-6 container w-[100%] ">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap justify-between">
           <div className="w-full md:w-1/4 mb-4">
@@ -54,7 +54,7 @@ const Footer = () => {
 
           <div className="w-full md:w-1/4 mb-4">
             <h4 className="font-semibold mb-2">Follow Us</h4>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 md:space-x-0.5">
               <a href="#facebook" className="text-blue-600 hover:underline">
                 Facebook
               </a>
