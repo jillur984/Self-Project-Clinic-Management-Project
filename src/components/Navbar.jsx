@@ -114,19 +114,19 @@ const Navbar = () => {
               <li className=" hover:bg-white hover:text-black active:bg-white active:text-black">
                 <Link to="/" className="">Home</Link>
               </li>
-              <li>
+              <li className="hover:bg-white hover:text-black active:bg-white active:text-black">
                 <Link to="/care">Care</Link>
               </li>
-              <li>
+              <li className="hover:bg-white hover:text-black active:bg-white active:text-black">
                 <Link to="/patient">Patient</Link>
               </li>
-              <li>
+              <li className="hover:bg-white hover:text-black active:bg-white active:text-black">
                 <Link to="/contact">Contact</Link>
               </li>
-              <li>
+              <li className="hover:bg-white hover:text-black active:bg-white active:text-black">
                 <Link to="/report">Report</Link>
               </li>
-              <li>
+              <li className="hover:bg-white hover:text-black active:bg-white active:text-black">
                 <Link to="/signup">Internship Care</Link>
               </li>
              {
