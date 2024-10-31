@@ -95,7 +95,7 @@ const Navbar = () => {
                 Logout
               </span>
           {
-            console.log(auth.data.role)
+            
           }
               <button
                 onClick={closeModal} // Close modal on click

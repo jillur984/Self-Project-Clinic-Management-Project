@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { SignupContext } from "../context";
 const SignupInfoProvider = ({ children }) => {
-  const [SignupUserInfo, setSignupUserInfo] = useState({});
+  const [signupUserInfo, setSignupUserInfo] = useState({});
 
   return (
-    <SignupContext.Provider value={{ SignupUserInfo, setSignupUserInfo }}>
+    <SignupContext.Provider value={{ signupUserInfo, setSignupUserInfo }}>
       {children}
     </SignupContext.Provider>
   );

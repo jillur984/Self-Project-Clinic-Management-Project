@@ -2,9 +2,8 @@
 import { useSignupInfo } from "../hooks/useSignupInfo";
 
 const AdminDashboard = () => {
-  const{SignupUserInfo,setSignupUserInfo}=useSignupInfo()
-  console.log(SignupUserInfo?.data?.id)
- 
+  const{signupUserInfo,setSignUpUserInfo}=useSignupInfo()
+  console.log(signupUserInfo)
   return (
     <div className="p-4">
       <h1 className="font-bold text-2xl">
@@ -20,8 +19,8 @@ const AdminDashboard = () => {
         </thead>
         <tbody>
           <tr>
-            <td className="border px-4 py-2">{SignupUserInfo?.data?.username}</td>
-            <td className="border px-4 py-2">{SignupUserInfo?.data?.email}</td>
+            <td className="border px-4 py-2">{signupUserInfo?.data?.username}</td>
+            <td className="border px-4 py-2">{signupUserInfo?.data?.email}</td>
             <td className="border px-4 py-2 flex gap-10">
               <select name="" id="">
                 <option value="user">User</option>
