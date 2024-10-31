@@ -77,7 +77,7 @@ const Navbar = () => {
                 My Profile
               </h1>
               {
-                auth?.data?.role==='user' ? (
+                auth?.data?.role==='admin' ? (
                   <h2 className="text-black">Settings(User)</h2>
                 ):(
                   <h2 className="cursor-pointer text-black text-[15px] p-1" onClick={()=>

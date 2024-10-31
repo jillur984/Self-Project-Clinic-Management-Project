@@ -10,8 +10,9 @@ import Contact from "./components/Contact";
 import Care from "./components/Care";
 import PatientEntry from "./components/PatientEntry";
 import PrivateRoutes from "./routes/PrivateRoutes";
-import Dashboard from "./auth/Dashboard";
+import AdminDashboard from "./auth/Admindashboard";
 
+import { ToastContainer} from "react-toastify";
 
 const App = () => {
   return (
@@ -22,10 +23,11 @@ const App = () => {
         <Routes>
           <Route element={<PrivateRoutes/>}>
           <Route path="/care" element={<Care />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          
           </Route>
           
           <Route path="/patient" element={<Patient />} />
+          <Route path="/dashboard" element={<AdminDashboard />} />
           <Route path="/patient-entry" element={<PatientEntry/>} />
           <Route path="/doctor-details" element={<DoctorDetails />} />
 
@@ -35,6 +37,7 @@ const App = () => {
           <Route path="/login" element={<Loginpage />} />
         </Routes>
         <Footer />
+        <ToastContainer theme="dark" />
       </div>
     </>
   );

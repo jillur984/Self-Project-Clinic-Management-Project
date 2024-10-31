@@ -2,8 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useAuth } from "../hooks/useAuth";
 import axios from "axios";
-
+import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 const Loginform = () => {
+
   const navigate = useNavigate();
 
   const { setAuth } = useAuth();
@@ -29,6 +31,7 @@ const Loginform = () => {
           const authToken = access_token;
           console.log(`Login Time Auth Token ${authToken}`);
           setAuth({ data, access_token });
+          toast.success("Login in Succesfully")
           navigate("/");
         }
       } catch (error) {
@@ -129,6 +132,7 @@ const Loginform = () => {
             Sign up
           </button>
         </p>
+      
       </div>
     </div>
   );
