@@ -10,6 +10,7 @@ import Contact from "./components/Contact";
 import Care from "./components/Care";
 import PatientEntry from "./components/PatientEntry";
 import PrivateRoutes from "./routes/PrivateRoutes";
+import Dashboard from "./auth/Dashboard";
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
         <Routes>
           <Route element={<PrivateRoutes/>}>
           <Route path="/care" element={<Care />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           </Route>
           
           <Route path="/patient" element={<Patient />} />

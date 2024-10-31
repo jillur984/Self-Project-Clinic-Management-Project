@@ -72,16 +72,31 @@ const Navbar = () => {
         {modalOpen && (
           <>
             {/* Modal content */}
-            <div className="fixed top-10 right-16 bg-black border rounded-md shadow-lg p-2 w-48 z-50">
-              <h1 className="text-lg text-white font-semibold mb-2 cursor-pointer">
+            <div className="fixed top-10 right-16 bg-white border rounded-md shadow-lg p-2 w-48 z-50">
+              <h1 className="text-md p-2 text-black font-bold mb-2 cursor-pointer">
                 My Profile
               </h1>
+              {
+                auth?.data?.role==='user' ? (
+                  <h2 className="text-black">Settings(User)</h2>
+                ):(
+                  <h2 className="cursor-pointer text-black text-[15px] p-1" onClick={()=>
+                    {
+                      navigate("/dashboard");
+                      closeModal()
+                    }
+                  }>Dashboard(Admin)</h2>
+                )
+              }
               <span
-                className="block text-blue-600 cursor-pointer hover:underline"
+                className="block text-blue-600 p-2 cursor-pointer hover:underline"
                 onClick={handelLogout}
               >
                 Logout
               </span>
+          {
+            console.log(auth.data.role)
+          }
               <button
                 onClick={closeModal} // Close modal on click
                 className="absolute top-0 right-0 p-1 text-black text-2xl"
