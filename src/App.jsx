@@ -12,7 +12,7 @@ import PatientEntry from "./components/PatientEntry";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import AdminDashboard from "./auth/AdminDashboard";
 
-import { ToastContainer} from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import DoctorEntry from "./auth/DoctorEntry";
 
 const App = () => {
@@ -20,20 +20,19 @@ const App = () => {
     <>
       <div className="container bg-[#171d32] mx-auto px-0">
         <Navbar />
-        
+
         <Routes>
           {/* implement private routes */}
-          <Route element={<PrivateRoutes/>}>
-          <Route path="/care" element={<Care />} />
-          
+          <Route element={<PrivateRoutes />}>
+            <Route path="/dashboard" element={<AdminDashboard />} />
+            <Route path="/care" element={<Care />} />
           </Route>
           <Route path="/doctor-entry" element={<DoctorEntry />} />
           <Route path="/patient" element={<Patient />} />
-          <Route path="/dashboard" element={<AdminDashboard />} />
-          <Route path="/patient-entry" element={<PatientEntry/>} />
-          <Route path="/report" element={<DoctorEntry/>} />
+         <Route path="/patient-entry" element={<PatientEntry />} />
+          <Route path="/report" element={<DoctorEntry />} />
           <Route path="/doctor-details" element={<DoctorDetails />} />
-
+       
           <Route path="/" exact element={<Homepage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/signup" element={<SignupPage />} />
