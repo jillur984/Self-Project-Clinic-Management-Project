@@ -1,7 +1,8 @@
 import Doctor1 from "../assets/doctor3.jpeg";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { useState } from "react";
+import { useDoctors } from "../hooks/useDoctors";
+import { actions } from "../actions";
 
 const DoctorEntry = () => {
   const {
@@ -11,7 +12,9 @@ const DoctorEntry = () => {
     setError,
   } = useForm();
 
-  const [doctorData, setDoctorData] = useState([]);
+  const { state, dispatch } = useDoctors();
+
+  console.log(state.doctorData.data);
 
   const SubmitDoctorInfo = async (formData) => {
     const {
@@ -34,8 +37,6 @@ const DoctorEntry = () => {
       availibility: [{ day, startTime, endTime }],
     };
 
-    console.log(doctorData);
-
     try {
       let response = await axios.post(
         `${import.meta.env.VITE_SERVER_BASE_URL}/doctors`,
@@ -46,13 +47,14 @@ const DoctorEntry = () => {
       );
 
       if (response.status === 201) {
-        setDoctorData(response.data);
+        dispatch({
+          type: actions.doctor.DATA_CREATED,
+          doctorData: response.data,
+        });
       }
     } catch (error) {
       console.error(error.response.data);
     }
-
-    console.log(result);
   };
 
   return (
@@ -266,7 +268,6 @@ const DoctorEntry = () => {
           </button>
         </form>
       </div>
-      {doctorData?.data?.email}
     </>
   );
 };

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import Doctor from "../assets/doctor2.jpg";
 
+
+
 const DoctorCard = () => {
   return (
     <>

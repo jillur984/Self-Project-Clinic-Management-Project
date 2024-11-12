@@ -6,9 +6,11 @@ import { BrowserRouter } from 'react-router-dom'
 import AuthProvider from './Providers/AuthProvider.jsx'
 import SignupInfoProvider from './Providers/SignupInfoProvider.jsx'
 import MembersProvider from './Providers/MembersProvider.jsx'
+import DoctorsProvider from './Providers/DoctorsProvider.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <DoctorsProvider>
     <MembersProvider>
     <SignupInfoProvider>
     <AuthProvider>
@@ -18,6 +20,6 @@ createRoot(document.getElementById('root')).render(
     </AuthProvider>
     </SignupInfoProvider>
     </MembersProvider>
-    
+    </DoctorsProvider>
   </StrictMode>,
 )
