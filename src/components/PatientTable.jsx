@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import jillur from "../assets/jillur.jpg";
 import { FaEdit } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
@@ -48,7 +48,7 @@ const PatientTable = () => {
                 <span className="font-bold cursor-pointer">
                   <div className="flex justify-center gap-3">
                     <FaEdit />
-                    <MdDelete />
+                    <MdDelete onClick={()=>confirm("Are you want to Delete ?")} />
                   </div>
                 </span>
               </td>

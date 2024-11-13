@@ -14,7 +14,7 @@ const Care = () => {
         const response = await axios.get(
           `${
             import.meta.env.VITE_SERVER_BASE_URL
-          }/members/local?page=2&size=30&filter=role:doctor&expand=doctor.*`
+          }/members/local?page=2&size=10&filter=role:doctor&expand=doctor.*`
         );
         if (response.status === 200) {
           setDoctorData(response.data);

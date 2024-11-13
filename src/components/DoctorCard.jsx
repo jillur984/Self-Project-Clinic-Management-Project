@@ -24,7 +24,7 @@ const DoctorCard = ({doctorData}) => {
                   alt=""
                   className="w-full md:h-48 object-cover"
                 />
-                {console.log(doctor)}
+                
                 <div className="bg-slate-900 text-white">
                   <h1>{doctor.id}</h1>
                   <h2>yusuf.ali@gmail.com</h2>

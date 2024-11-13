@@ -16,7 +16,7 @@ const Homepage = () => {
         </div>
        </div>
         <Care/>
-        <p className="text-justify mt-5 font-serif text-2xl leading-tight tracking-wider text-white mb-1 px-1">
+        <p className="text-justify mt-5 font-serif text-md md:text-2xl leading-tight tracking-wider text-white mb-1 px-1">
           Jillur-M Diagnostic Center, established over 20 years ago, is one of
           the leading healthcare facilities in Bangladesh. Renowned for its
           comprehensive diagnostic services, the center features a team of
