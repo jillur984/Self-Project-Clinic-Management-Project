@@ -1,65 +1,56 @@
-import DoctorCard from "./DoctorCard";
+
 
 const SidebarFilter = () => {
   return (
-  <>
-   <div className="container w-full flex justify-center  items-center mr-24 mb-2 md:mb-8 mt-2">
-    {/* Filter Section */}
-    <div className="h-auto hidden md:block max-w-[20%] border rounded-md p-4 shadow-md">
-      <header>
-        <h1 className="text-lg font-semibold mb-4">Filter By:</h1>
-      </header>
-      <fieldset className="space-y-2">
-        <div>
-          <input type="checkbox" id="doctor-filter" className="mr-2" />
-          <label htmlFor="doctor-filter">Doctor</label>
+    <>
+    <div className="hidden md:block  p-10 basis-[18%]  ">
+          <header>
+            <h1 className="text-lg text-white font-bold mb-4">Filter By:</h1>
+          </header>
+          <fieldset className="">
+            <div className="flex gap-1 text-white">
+              <input type="checkbox" id="doctor-filter" className="" />
+              <label htmlFor="doctor-filter text-white">Doctor</label>
+            </div>
+            <div className="flex gap-1 text-white">
+              <input type="checkbox" id="nurse-filter" className="" />
+              <label htmlFor="nurse-filter text-white">Nurse</label>
+            </div>
+          </fieldset>
+
+          <header>
+            <h1 className="text-lg text-white font-semibold mt-6 mb-4">
+              Filter By Weekend:
+            </h1>
+          </header>
+          <fieldset className="text-white">
+            {[
+              "All Day",
+              "Saturday",
+              "Sunday",
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+            ].map((day) => (
+              <div key={day}>
+                <input
+                  type="checkbox"
+                  id={`${day.toLowerCase()}-filter`}
+                  className="mr-2"
+                />
+                <label htmlFor={`${day.toLowerCase()}-filter`} className="">
+                  {day}
+                </label>
+              </div>
+            ))}
+          </fieldset>
         </div>
-        <div>
-          <input type="checkbox" id="nurse-filter" className="mr-2" />
-          <label htmlFor="nurse-filter">Nurse</label>
+        <div className="bg-white h-screen flex items-center justify-center">
+          <div className="border-l border-gray-300 h-36"></div>
         </div>
-      </fieldset>
-
-      <header>
-        <h1 className="text-lg font-semibold mt-6 mb-4">
-          Filter By Weekend:
-        </h1>
-      </header>
-      <fieldset className="space-y-2">
-        {[
-          "All Day",
-          "Saturday",
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-        ].map((day) => (
-          <div key={day}>
-            <input
-              type="checkbox"
-              id={`${day.toLowerCase()}-filter`}
-              className="mr-2"
-            />
-            <label htmlFor={`${day.toLowerCase()}-filter`}>{day}</label>
-          </div>
-        ))}
-      </fieldset>
-    </div>
-
-    {/* Vertical Line */}
-    <div className="border-r-2 h-full mx-8"></div>
-
-    {/* Doctor Card Section */}
-    <div className="">
-     <DoctorCard />
-     </div>
-    
-    
-  </div>
-  
-  </>
+    </>
   )
 }
 

@@ -3,20 +3,24 @@ import { useNavigate } from "react-router-dom";
 import Jillur from "../assets/jillur.jpg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 
 const Navbar = () => {
   const { auth, setAuth } = useAuth();
 
-  console.log(auth);
-
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false); // Boolean state for modal
+  const [modalOpen, setModalOpen] = useState(false); 
 
   // Function to close the modal
   const closeModal = () => {
+    setModalOpen(false);
+    setIsOpen(false);
+  };
+
+  const closeModalMobile = () => {
+    setIsOpen(!isOpen);
     setModalOpen(false);
   };
 
@@ -76,27 +80,26 @@ const Navbar = () => {
               <h1 className="text-md p-2 text-black font-bold mb-2 cursor-pointer">
                 My Profile
               </h1>
-              {
-                auth?.data?.role==='admin' ? (
-                  <h2 className="text-black">Settings(User)</h2>
-                ):(
-                  <h2 className="cursor-pointer text-black text-[15px] p-1" onClick={()=>
-                    {
-                      navigate("/dashboard");
-                      closeModal()
-                    }
-                  }>Dashboard(Admin)</h2>
-                )
-              }
+              {auth?.data?.role === "admin" ? (
+                <h2 className="text-black">Settings(User)</h2>
+              ) : (
+                <h2
+                  className="cursor-pointer text-black text-[15px] p-1"
+                  onClick={() => {
+                    navigate("/dashboard");
+                    closeModal();
+                  }}
+                >
+                  Dashboard(Admin)
+                </h2>
+              )}
               <span
                 className="block text-blue-600 p-2 cursor-pointer hover:underline"
                 onClick={handelLogout}
               >
                 Logout
               </span>
-          {
-            
-          }
+              {}
               <button
                 onClick={closeModal} // Close modal on click
                 className="absolute top-0 right-0 p-1 text-black text-2xl"
@@ -114,7 +117,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation */}
         <div className="md:hidden w-full bg-black items-center flex justify-end ">
-          <button onClick={() => setIsOpen(!isOpen)}>
+          <button onClick={closeModalMobile}>
             {isOpen ? (
               <IoMdClose className="text-white m-1 text-2xl" />
             ) : (

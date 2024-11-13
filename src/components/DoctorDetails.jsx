@@ -1,7 +1,10 @@
 import Doctor from '../assets/doctor2.jpg';
+
 import { useNavigate } from 'react-router-dom';
 
 const DoctorDetails = () => {
+
+
 
   const navigate=useNavigate()
   return (

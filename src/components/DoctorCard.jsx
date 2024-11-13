@@ -1,91 +1,166 @@
 import { Link } from "react-router-dom";
-import Doctor from "../assets/doctor2.jpg";
+import Doctor1 from "../assets/doctor1.jpg";
+import Doctor2 from "../assets/doctor2.jpg";
+import Doctor3 from "../assets/doctor3.jpeg";
+import Doctor4 from "../assets/doctor4.jpeg";
+import Doctor5 from "../assets/doctor5.jpeg";
+import Doctor6 from "../assets/doctor6.jpeg";
+import Doctor7 from "../assets/doctor7.jpeg";
 
+const DoctorCard = ({doctorData}) => {
 
-
-const DoctorCard = () => {
+  console.log(doctorData)
+  
   return (
     <>
-      <div className="grid place-items-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
-        <div className="grid place-items-center">
-          <div className="container grid justify-center items-center">
-            <Link to="/doctor-details">
-              <div className="bg-white shadow-lg rounded-lg p-4 w-64">
+    <div className="flex w-full basis-[80%] md:basis-[70%] sm:basis-[60%] mx-auto">
+          <Link to="/doctor-details">
+           {
+            doctorData.map((doctor,i)=>{
+             return <div key={i} className="grid w-full justify-center items-center mx-0  md:mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2  ">
+              <div className="w-full md:basis-[26%] bg-gray-700 mb-1">
                 <img
-                  src={Doctor}
-                  alt="Dr. Yusuf Ali"
-                  className="h-40 w-full object-cover object-center rounded-t-lg"
+                  src={Doctor1}
+                  alt=""
+                  className="w-full md:h-48 object-cover"
                 />
-                <h1 className="text-lg font-semibold mt-3 ">Dr. Yusuf Ali</h1>
-                <p className="text-gray-600 mt-1 ">{`xyz@email.com`}</p>
-                <p className="text-gray-500 mt-1 ">{`MBBS, FCPS, Dhaka Medical College`}</p>
-                <p className="text-gray-500 mt-1 ">{`Available All Day`}</p>
-                <p className="text-blue-600 font-semibold mt-2">{`8 Years of Experience in Medicine`}</p>
-                <h2 className="text-md font-semibold mt-4">Rating</h2>
-                <p className="text-yellow-500">★★★★☆</p>
+                {console.log(doctor)}
+                <div className="bg-slate-900 text-white">
+                  <h1>{doctor.id}</h1>
+                  <h2>yusuf.ali@gmail.com</h2>
+                  <p>Avaiable all day</p>
+                  <h2>8 Years of Experience</h2>
+                  <h2 className="text-md font-semibold mt-4">Rating</h2>
+                  <p className="text-yellow-500">★★★★☆</p>
+                </div>
               </div>
-            </Link>
-          </div>
-
-          <div className="grid justify-center ">
-            <Link to="/doctor-details">
-              <div className= "bg-white shadow-lg rounded-lg p-4 w-64">
+              <div className="w-full md:basis-[26%] bg-gray-700 mb-1 ">
                 <img
-                  src={Doctor}
-                  alt="Dr. Yusuf Ali"
-                  className="h-40 w-full object-cover object-center rounded-t-lg"
+                  src={Doctor2}
+                  alt=""
+                  className="w-full md:h-48 object-cover"
                 />
-                <h1 className="text-lg font-semibold mt-3 ">Dr. Yusuf Ali</h1>
-                <p className="text-gray-600 mt-1 ">{`xyz@email.com`}</p>
-                <p className="text-gray-500 mt-1 ">{`MBBS, FCPS, Dhaka Medical College`}</p>
-                <p className="text-gray-500 mt-1 ">{`Available All Day`}</p>
-                <p className="text-blue-600 font-semibold mt-2">{`8 Years of Experience in Medicine`}</p>
-                <h2 className="text-md font-semibold mt-4">Rating</h2>
-                <p className="text-yellow-500">★★★★☆</p>
+                <div className="bg-slate-900 text-white">
+                  <h1>Dr. Md. Yusuf Ali</h1>
+                  <h2>yusuf.ali@gmail.com</h2>
+                  <p>Avaiable all day</p>
+                  <h2>8 Years of Experience</h2>
+                  <h2 className="text-md font-semibold mt-4">Rating</h2>
+                  <p className="text-yellow-500">★★★★☆</p>
+                </div>
               </div>
-            </Link>
-          </div>
-          <div className="grid justify-center items-center mb-5">
-            <Link to="/doctor-details">
-              <div className="bg-white shadow-lg rounded-lg p-4 w-64">
+              <div className="w-full md:basis-[26%] bg-gray-700 mb-1">
                 <img
-                  src={Doctor}
-                  alt="Dr. Yusuf Ali"
-                  className="h-40 w-full object-cover object-center rounded-t-lg"
+                  src={Doctor3}
+                  alt=""
+                  className="w-full md:h-48 object-fit"
                 />
-                <h1 className="text-lg font-semibold mt-3 ">Dr. Yusuf Ali</h1>
-                <p className="text-gray-600 mt-1 ">{`xyz@email.com`}</p>
-                <p className="text-gray-500 mt-1 ">{`MBBS, FCPS, Dhaka Medical College`}</p>
-                <p className="text-gray-500 mt-1 ">{`Available All Day`}</p>
-                <p className="text-blue-600 font-semibold mt-2">{`8 Years of Experience in Medicine`}</p>
-                <h2 className="text-md font-semibold mt-4">Rating</h2>
-                <p className="text-yellow-500">★★★★☆</p>
+                <div className="bg-slate-900 text-white">
+                  <h1>Dr. Md. Yusuf Ali</h1>
+                  <h2>yusuf.ali@gmail.com</h2>
+                  <p>Avaiable all day</p>
+                  <h2>8 Years of Experience</h2>
+                  <h2 className="text-md font-semibold mt-4">Rating</h2>
+                  <p className="text-yellow-500">★★★★☆</p>
+                </div>
               </div>
-            </Link>
-          </div>
-          <div className="grid justify-center items-center mb-5">
-            <Link to="/doctor-details">
-              <div className="bg-white shadow-lg rounded-lg p-4 w-64">
+              <div className="w-full md:basis-[26%] bg-gray-700 mb-1 overflow-hidden">
                 <img
-                  src={Doctor}
-                  alt="Dr. Yusuf Ali"
-                  className="h-40 w-full object-cover object-center rounded-t-lg"
+                  src={Doctor4}
+                  alt=""
+                  className="w-full md:h-48 object-fit"
                 />
-                <h1 className="text-lg font-semibold mt-3 ">Dr. Yusuf Ali</h1>
-                <p className="text-gray-600 mt-1 ">{`xyz@email.com`}</p>
-                <p className="text-gray-500 mt-1 ">{`MBBS, FCPS, Dhaka Medical College`}</p>
-                <p className="text-gray-500 mt-1 ">{`Available All Day`}</p>
-                <p className="text-blue-600 font-semibold mt-2">{`8 Years of Experience in Medicine`}</p>
-                <h2 className="text-md font-semibold mt-4">Rating</h2>
-                <p className="text-yellow-500">★★★★☆</p>
+                <div className="bg-slate-900 text-white">
+                  <h1>Dr. Md. Yusuf Ali</h1>
+                  <h2>yusuf.ali@gmail.com</h2>
+                  <p>Avaiable all day</p>
+                  <h2>8 Years of Experience</h2>
+                  <h2 className="text-md font-semibold mt-4">Rating</h2>
+                  <p className="text-yellow-500">★★★★☆</p>
+                </div>
               </div>
-            </Link>
-          </div>
+              <div className="w-full md:basis-[26%] bg-gray-700 mb-1">
+                <img
+                  src={Doctor5}
+                  alt=""
+                  className="w-full md:h-48 object-fit"
+                />
+                <div className="bg-slate-900 text-white">
+                  <h1>Dr. Md. Yusuf Ali</h1>
+                  <h2>yusuf.ali@gmail.com</h2>
+                  <p>Avaiable all day</p>
+                  <h2>8 Years of Experience</h2>
+                  <h2 className="text-md font-semibold mt-4">Rating</h2>
+                  <p className="text-yellow-500">★★★★☆</p>
+                </div>
+              </div>
+              <div className="w-full md:basis-[26%] bg-gray-700 mb-1">
+                <img
+                  src={Doctor6}
+                  alt=""
+                  className="w-full md:h-48 object-fit"
+                />
+                <div className="bg-slate-900 text-white">
+                  <h1>Dr. Md. Yusuf Ali</h1>
+                  <h2>yusuf.ali@gmail.com</h2>
+                  <p>Avaiable all day</p>
+                  <h2>8 Years of Experience</h2>
+                  <h2 className="text-md font-semibold mt-4">Rating</h2>
+                  <p className="text-yellow-500">★★★★☆</p>
+                </div>
+              </div>
+              <div className="w-full md:basis-[26%] bg-gray-700 mb-1">
+                <img
+                  src={Doctor7}
+                  alt=""
+                  className="w-full md:h-48 object-fit"
+                />
+                <div className="bg-slate-900 text-white">
+                  <h1>Dr. Md. Yusuf Ali</h1>
+                  <h2>yusuf.ali@gmail.com</h2>
+                  <p>Avaiable all day</p>
+                  <h2>8 Years of Experience</h2>
+                  <h2 className="text-md font-semibold mt-4">Rating</h2>
+                  <p className="text-yellow-500">★★★★☆</p>
+                </div>
+              </div>
+              <div className="w-full md:basis-[26%] bg-gray-700 mb-1">
+                <img
+                  src={Doctor2}
+                  alt=""
+                  className="w-full md:h-48 object-cover"
+                />
+                <div className="bg-slate-900 text-white">
+                  <h1>Dr. Md. Yusuf Ali</h1>
+                  <h2>yusuf.ali@gmail.com</h2>
+                  <p>Avaiable all day</p>
+                  <h2>8 Years of Experience</h2>
+                  <h2 className="text-md font-semibold mt-4">Rating</h2>
+                  <p className="text-yellow-500">★★★★☆</p>
+                </div>
+              </div>
+              <div className="w-full md:basis-[26%] bg-gray-700 mb-1">
+                <img
+                  src={Doctor6}
+                  alt=""
+                  className="w-full md:h-48 object-fit"
+                />
+                <div className="bg-slate-900 text-white">
+                  <h1>Dr. Md. Yusuf Ali</h1>
+                  <h2>yusuf.ali@gmail.com</h2>
+                  <p>Avaiable all day</p>
+                  <h2>8 Years of Experience</h2>
+                  <h2 className="text-md font-semibold mt-4">Rating</h2>
+                  <p className="text-yellow-500">★★★★☆</p>
+                </div>
+              </div>
+            </div>
+            })
+           }
+          </Link>
         </div>
-     </div>
-      
     </>
-  );
-};
+  )
+}
 
-export default DoctorCard;
+export default DoctorCard
