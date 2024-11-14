@@ -52,7 +52,7 @@ const Navbar = () => {
               <Link to="/report">Report</Link>
             </li>
             <li className="hover:bg-white hover:text-black p-2 rounded-sm transition duration-300">
-              <Link to="/signup">Internship</Link>
+              <Link to="/intern">Internship</Link>
             </li>
             {auth?.data?.id && (
               <div className="h-auto">
@@ -147,7 +147,7 @@ const Navbar = () => {
                 <Link to="/report">Report</Link>
               </li>
               <li className="hover:bg-white hover:text-black active:bg-white active:text-black">
-                <Link to="/signup">Internship Care</Link>
+                <Link to="/intern">Internship Care</Link>
               </li>
               {auth?.data?.id && (
                 <div className="flex items-center justify-center">

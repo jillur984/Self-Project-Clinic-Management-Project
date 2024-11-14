@@ -1,6 +1,5 @@
 import Loginpage from "./page/Loginpage";
 import Navbar from "./components/Navbar";
-import SignupPage from "./page/SignupPage";
 import { Routes, Route } from "react-router-dom";
 import Homepage from "./page/Homepage";
 import Footer from "./components/Footer";
@@ -14,6 +13,7 @@ import AdminDashboard from "./auth/AdminDashboard";
 
 import { ToastContainer } from "react-toastify";
 import DoctorEntry from "./auth/DoctorEntry";
+import Internship from "./components/Internship";
 
 const App = () => {
   return (
@@ -35,7 +35,7 @@ const App = () => {
        
           <Route path="/" exact element={<Homepage />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/signup" element={<SignupPage />} />
+          <Route path="/intern" element={<Internship />} />
           <Route path="/login" element={<Loginpage />} />
         </Routes>
         <Footer />
