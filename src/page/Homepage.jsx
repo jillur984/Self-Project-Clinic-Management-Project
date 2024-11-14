@@ -5,7 +5,7 @@ const Homepage = () => {
     <>
       <div>
         <div className="overflow-hidden whitespace-nowrap bg-black-500 text-white py-2 w-full">
-          <p className="text-center text-2xl animate-pulse">
+          <p className="text-sm md:text-2xl animate-pulse text-center">
             🎉 Special Offer! Get 50% Discount on X-Ray Services at Our Clinic!
             🏥
           </p>
