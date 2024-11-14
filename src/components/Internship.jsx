@@ -12,7 +12,7 @@ const Internship = () => {
           Are you looking for a Job Ready internship ?? Yes , you are right
           Destination
         </h2>
-        <div className="flex">
+        <div className="flex flex-col md:flex-row">
           <div className="flex basis-[50%] border">
             <img src={jillurmlogo} alt="" className=" w-full object-fit" />
           </div>
