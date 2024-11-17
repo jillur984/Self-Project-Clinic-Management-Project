@@ -5,30 +5,32 @@ import DoctorCard from "./DoctorCard";
 
 const Care = () => {
   const [doctorData, setDoctorData] = useState([]);
-  const[loading,setLoading]=useState(false)
-  const[page,setPage]=useState(3)
+  const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(0);
+
   console.log(doctorData?.data);
+
+  const doctorsPerPage=10;
 
   useEffect(() => {
     const fetchDoctorData = async () => {
-      setLoading(true)
+      setLoading(true);
       try {
         const response = await axios.get(
           `${
             import.meta.env.VITE_SERVER_BASE_URL
-          }/members/local?page=${page}&size=16&filter=role:doctor&expand=doctor.*`
+          }/members/local?page=${page}&size=40&filter=role:doctor&expand=doctor.*`
         );
         if (response.status === 200) {
           setDoctorData(response.data);
-          
         }
       } catch (error) {
         console.log(error);
-      }
-      finally{
-        setLoading(false)
+      } finally {
+        setLoading(false);
       }
     };
+
     fetchDoctorData();
   }, [page]);
 
@@ -54,10 +56,10 @@ const Care = () => {
       </div>
       <div className="flex gap-5 ">
         {/* Sidebar filter Work */}
-        <SidebarFilter/>
-       
+        <SidebarFilter />
+
         {/*Doctor Card Section Work */}
-        <DoctorCard doctorData={doctorData?.data || []}/>
+        <DoctorCard doctorData={doctorData?.data || []} />
       </div>
     </section>
   );

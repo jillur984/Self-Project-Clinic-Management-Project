@@ -1,5 +1,6 @@
 import MedicalImage from "../assets/medical.webp";
 import Care from "../components/Care";
+import Service from "../components/Service";
 const Homepage = () => {
   return (
     <>
@@ -16,6 +17,9 @@ const Homepage = () => {
         </div>
        </div>
         <Care/>
+       <div>
+       <Service/>
+       </div>
         <p className="text-justify mt-5 font-serif text-md md:text-2xl leading-tight tracking-wider text-white mb-1 px-1">
           Jillur-M Diagnostic Center, established over 20 years ago, is one of
           the leading healthcare facilities in Bangladesh. Renowned for its
