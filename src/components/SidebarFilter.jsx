@@ -3,8 +3,6 @@ import { useState } from "react"
 const SidebarFilter = ({doctorData}) => {
   console.log(doctorData)
 
-  const[checked,setChecked]=useState(false)
-  const[filterData,setFilterData]=useState([])
 
 
 
@@ -19,7 +17,7 @@ const SidebarFilter = ({doctorData}) => {
           </header>
           <fieldset className="">
             <div className="flex gap-1 text-white">
-              <input type="checkbox" id="doctor-filter" className="" value={e.target.checked} onChange={()=>}  />
+              <input type="checkbox" id="doctor-filter" className=""  />
               <label htmlFor="doctor-filter text-white">Doctor</label>
             </div>
             <div className="flex gap-1 text-white">
