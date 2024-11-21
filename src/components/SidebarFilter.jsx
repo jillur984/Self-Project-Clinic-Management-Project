@@ -1,5 +1,16 @@
+import { useState } from "react"
 
-const SidebarFilter = () => {
+const SidebarFilter = ({doctorData}) => {
+  console.log(doctorData)
+
+  const[checked,setChecked]=useState(false)
+  const[filterData,setFilterData]=useState([])
+
+
+
+
+
+
   return (
     <>
     <div className="hidden md:block  p-10 basis-[18%]  ">
@@ -8,7 +19,7 @@ const SidebarFilter = () => {
           </header>
           <fieldset className="">
             <div className="flex gap-1 text-white">
-              <input type="checkbox" id="doctor-filter" className="" />
+              <input type="checkbox" id="doctor-filter" className="" value={e.target.checked} onChange={()=>}  />
               <label htmlFor="doctor-filter text-white">Doctor</label>
             </div>
             <div className="flex gap-1 text-white">
