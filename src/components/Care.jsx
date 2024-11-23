@@ -8,8 +8,8 @@ const Care = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  const [page] = useState(0);
-
+  
+console.log(doctorData)
   useEffect(() => {
     const fetchDoctorData = async () => {
       setLoading(true);
@@ -17,7 +17,8 @@ const Care = () => {
         const response = await axios.get(
           `${
             import.meta.env.VITE_SERVER_BASE_URL
-          }/members/local?page=${page}&size=36&filter=role:doctor&expand=doctor.*`
+          }/members/local?page=1&size=36&filter=role:doctor&expand=doctor.*`,
+          { headers: { "Content-Type": "application/json" } }
         );
         if (response.status === 200) {
           setDoctorData(response.data?.data);
@@ -30,13 +31,13 @@ const Care = () => {
     };
 
     fetchDoctorData();
-  }, [page]);
+  }, []);
 
   useEffect(() => {
     if (searchQuery.trim() === "") {
       setFilteredData(doctorData);
     } else {
-      const filtered =doctorData?.filter((doctor) =>
+      const filtered = doctorData?.filter((doctor) =>
         doctor?.username?.toLowerCase().includes(searchQuery.toLowerCase())
       );
       setFilteredData(filtered);
@@ -67,7 +68,7 @@ const Care = () => {
       </div>
       <div className="flex gap-5 ">
         {/* Sidebar filter Work */}
-        <SidebarFilter doctorData={doctorData} />
+        <SidebarFilter setFilteredData={setFilteredData} doctorData={doctorData} />
 
         {/*Doctor Card Section Work */}
 

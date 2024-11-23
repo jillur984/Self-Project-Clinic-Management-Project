@@ -10,6 +10,7 @@ import Care from "./components/Care";
 import PatientEntry from "./components/PatientEntry";
 import PrivateRoutes from "./routes/PrivateRoutes";
 import AdminDashboard from "./auth/AdminDashboard";
+import SignupPage from './page/SignupPage'
 
 import { ToastContainer } from "react-toastify";
 import DoctorEntry from "./auth/DoctorEntry";
@@ -32,7 +33,7 @@ const App = () => {
          <Route path="/patient-entry" element={<PatientEntry />} />
           <Route path="/report" element={<DoctorEntry />} />
           <Route path="/doctor-details/:id" element={<DoctorDetails />} />
-       
+          <Route path="/signup" element={<SignupPage />} />
           <Route path="/" exact element={<Homepage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/intern" element={<Internship />} />
