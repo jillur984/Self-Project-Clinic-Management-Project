@@ -8,8 +8,8 @@ const Care = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
-  
-console.log(doctorData)
+
+  console.log(doctorData);
   useEffect(() => {
     const fetchDoctorData = async () => {
       setLoading(true);
@@ -68,7 +68,10 @@ console.log(doctorData)
       </div>
       <div className="flex gap-5 ">
         {/* Sidebar filter Work */}
-        <SidebarFilter setFilteredData={setFilteredData} doctorData={doctorData} />
+        <SidebarFilter
+          setFilteredData={setFilteredData}
+          doctorData={doctorData}
+        />
 
         {/*Doctor Card Section Work */}
 

@@ -8,11 +8,7 @@ const Contact = () => {
     <section className="container ">
       {/* Header Image with Overlayed Text */}
       <div className="relative">
-        <img
-          src={HospitalImage}
-          alt="Hospital"
-          className="w-full h-64"
-        />
+        <img src={HospitalImage} alt="Hospital" className="w-full h-64" />
         <span className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-black text-3xl font-bold">
           Contact Us
         </span>
@@ -21,7 +17,7 @@ const Contact = () => {
       {/* Introduction Text */}
       <div className="text-center mt-5 mb-16 w-full">
         <h1 className="font-bold text-2xl text-white">Let's Get in Touch</h1>
-        <p className="text-gray-500 text-lg text-white">
+        <p className="text-gray-500 text-lg">
           We are open for any suggestions or just to have a chat
         </p>
       </div>
@@ -51,7 +47,6 @@ const Contact = () => {
           <div>
             <h2 className="font-semibold text-xl mb-1">Hotline</h2>
             <p className="text-gray-700">+8801734634864</p>
-            
           </div>
         </div>
 
@@ -64,7 +59,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row w-full">
+      <div className="flex flex-col md:flex-row mx-auto  w-full">
         <div className="w-full mx-8 md:w-[60%] order-2 md:order-1">
           <div className="w-full">
             <h1 className="font-bold text-2xl text-gray-600 mb-2 mt-2">

@@ -3,31 +3,32 @@ import Doctor from "../assets/doctor2.jpg";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useAuth } from "../hooks/useAuth";
 
 const DoctorDetails = () => {
   const { id } = useParams();
-  const[SingleDoctor,setSingleDoctor]=useState([])
+  const { auth } = useAuth();
+  const [SingleDoctor, setSingleDoctor] = useState([]);
   const navigate = useNavigate();
 
-console.log(SingleDoctor)
-  useEffect(()=>{
-   
-    const fetchSingleDoctor=async()=>{
+  console.log(SingleDoctor);
+  useEffect(() => {
+    const fetchSingleDoctor = async () => {
       try {
         const response = await axios.get(
           `${
             import.meta.env.VITE_SERVER_BASE_URL
           }/members/local/${id}?filter=role:doctor&expand=doctor.*`
         );
-        if(response.status===200){
-          setSingleDoctor(response.data)
+        if (response.status === 200) {
+          setSingleDoctor(response.data);
         }
       } catch (error) {
-        console.log(error.message)
+        console.log(error.message);
       }
-    }
-     fetchSingleDoctor()
-  },[id])
+    };
+    fetchSingleDoctor();
+  }, [id]);
 
   return (
     <div className="container mx-auto w-full flex flex-col md:flex-row p-4">
@@ -81,12 +82,21 @@ console.log(SingleDoctor)
           MBBS (Mymensingh Medical College), BCS (Health), FCPS, PJT
         </p>
 
-        <button
-          onClick={() => navigate("/login")}
-          className="w-full h-12 bg-yellow-300 text-gray-800 font-bold rounded-lg hover:bg-yellow-400 transition duration-300"
-        >
-          Appointment Now
-        </button>
+        {auth?.access_token ? (
+          <button
+            onClick={() => navigate("/patient-entry")}
+            className="w-full h-12 bg-yellow-300 text-gray-800 font-bold rounded-lg hover:bg-yellow-400 transition duration-300"
+          >
+            Booked as a Patient
+          </button>
+        ) : (
+          <button
+            onClick={() => navigate("/login")}
+            className="w-full h-12 bg-yellow-300 text-gray-800 font-bold rounded-lg hover:bg-yellow-400 transition duration-300"
+          >
+            Appointment Now
+          </button>
+        )}
       </div>
     </div>
   );

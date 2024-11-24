@@ -3,15 +3,17 @@ import { useNavigate } from "react-router-dom";
 import Jillur from "../assets/jillur.jpg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
+import { useMembers } from "../hooks/useMembers";
 
 const Navbar = () => {
   const { auth, setAuth } = useAuth();
+  const { members } = useMembers();
 
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false); 
+  const [modalOpen, setModalOpen] = useState(false);
 
   // Function to close the modal
   const closeModal = () => {

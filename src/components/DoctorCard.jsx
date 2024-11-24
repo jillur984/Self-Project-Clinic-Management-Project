@@ -12,7 +12,7 @@ const DoctorCard = ({ filteredData }) => {
             {filteredData.map((doctor) => {
               return (
                 <Link to={`/doctor-details/${doctor.id}`} key={doctor.id}>
-                  <div  className="w-full bg-gray-700 mb-1">
+                  <div className="w-full bg-gray-700 mb-1">
                     <img
                       src={Doctor1}
                       alt=""
@@ -31,6 +31,9 @@ const DoctorCard = ({ filteredData }) => {
                       <h2>8 Years of Experience</h2>
                       <h2 className="text-md font-semibold mt-4">Rating</h2>
                       <p className="text-yellow-500">★★★★☆</p>
+                      <button className="bg-white text-black block mx-auto p-1.5  hover:text-yellow-500 hover:bg-black font-bold animate-pulse">
+                        Booked Now
+                      </button>
                     </div>
                   </div>
                 </Link>
