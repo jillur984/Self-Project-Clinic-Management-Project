@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import Doctor1 from "../assets/doctor1.jpg";
+import { FaEdit } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const DoctorCard = ({ filteredData }) => {
-  console.log(filteredData);
-
+  const navigate = useNavigate();
   return (
     <>
       <div className="flex w-full basis-[80%] md:basis-[70%] sm:basis-[60%] mx-auto">
@@ -13,6 +14,10 @@ const DoctorCard = ({ filteredData }) => {
               return (
                 <Link to={`/doctor-details/${doctor.id}`} key={doctor.id}>
                   <div className="w-full bg-gray-700 mb-1">
+                    <FaEdit
+                      className="flex"
+                      onClick={() => navigate("/report")}
+                    />
                     <img
                       src={Doctor1}
                       alt=""

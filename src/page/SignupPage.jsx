@@ -3,12 +3,10 @@ import { useRef } from "react";
 import SignupImage from "../assets/signup1.jpg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useSignupInfo } from "../hooks/useSignupInfo";
 
 const SignupPage = () => {
   const navigate = useNavigate();
 
-  const { setSignupUserInfo } = useSignupInfo();
   const {
     register,
     formState: { errors },
@@ -28,11 +26,11 @@ const SignupPage = () => {
       );
 
       if (response.status === 201) {
-        const { data, access_token } = response.data;
+        const { access_token } = response.data;
         try {
           const authToken = access_token;
           console.log(`Sign Up Time Auth Token ${authToken}`);
-          setSignupUserInfo( data, authToken );
+
           navigate("/login");
         } catch (error) {
           console.log(error.message);

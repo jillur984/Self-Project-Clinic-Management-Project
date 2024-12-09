@@ -11,15 +11,15 @@ const Homepage = () => {
             🏥
           </p>
         </div>
-       <div>
-         <div className="">
-          <img src={MedicalImage} alt="" className="w-full h-96" />
+        <div>
+          <div className="">
+            <img src={MedicalImage} alt="" className="w-full h-96" />
+          </div>
         </div>
-       </div>
-        <Care/>
-       <div>
-       <Service/>
-       </div>
+        <Care />
+        <div>
+          <Service />
+        </div>
         <p className="text-justify mt-5 font-serif text-md md:text-2xl leading-tight tracking-wider text-white mb-1 px-1">
           Jillur-M Diagnostic Center, established over 20 years ago, is one of
           the leading healthcare facilities in Bangladesh. Renowned for its

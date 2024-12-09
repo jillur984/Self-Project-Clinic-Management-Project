@@ -1,7 +1,7 @@
 import { actions } from "../actions";
 
 const initialState = {
-  doctorData:{},
+  doctorData: {},
   error: false,
   loading: false,
 };
@@ -17,13 +17,13 @@ const DoctorInfoReducer = (state, action) => {
     case actions.doctor.DATA_FETCHED: {
       return {
         ...state,
-        loading:false
+        loading: false,
+      };
     }
-}
-    case actions.doctor.DATA_CREATED:{
+    case actions.doctor.DATA_CREATED: {
       return {
         ...state,
-        doctorData: { ...state.doctorData,...action.doctorData },
+        doctorData: { ...state.doctorData, ...action.doctorData },
         loading: false,
         error: false,
       };

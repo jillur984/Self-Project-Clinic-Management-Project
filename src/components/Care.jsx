@@ -9,7 +9,6 @@ const Care = () => {
   const [loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
-  console.log(doctorData);
   useEffect(() => {
     const fetchDoctorData = async () => {
       setLoading(true);

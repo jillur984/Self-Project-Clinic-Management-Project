@@ -1,24 +1,16 @@
 import { useState } from "react";
 
-const SidebarFilter = ({ doctorData,setFilteredData}) => {
+const SidebarFilter = ({ doctorData, setFilteredData }) => {
   const [filterDoctors, setFilterDoctors] = useState(doctorData);
-
-  console.log(filterDoctors);
 
   const doctorFilter = (status, isChecked) => {
     if (isChecked) {
-      // console.log("Hello I am",currentData
-
-      // )
       const result = doctorData.filter(
         (currentData) => currentData.status === status
       );
-      setFilteredData(result)
-      
-      
+      setFilteredData(result);
     } else {
-      
-      setFilteredData(doctorData)
+      setFilteredData(doctorData);
     }
   };
 
