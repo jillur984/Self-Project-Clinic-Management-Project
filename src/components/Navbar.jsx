@@ -32,6 +32,11 @@ const Navbar = () => {
     setModalOpen(false);
   };
 
+  const handleProfile = () => {
+    navigate("/profile");
+    setModalOpen(false);
+  };
+
   return (
     <>
       {/* Desktop Navigation */}
@@ -78,15 +83,18 @@ const Navbar = () => {
         {modalOpen && (
           <>
             {/* Modal content */}
-            <div className="fixed top-10 right-16 bg-white border rounded-md shadow-lg p-2 w-48 z-50">
-              <h1 className="text-md p-2 text-black font-bold mb-2 cursor-pointer">
+            <div className="fixed top-10 right-16 bg-black border rounded-md shadow-lg p-2 w-48 z-50">
+              <h1
+                className="text-md p-2 font-bold mb-2 cursor-pointer"
+                onClick={handleProfile}
+              >
                 My Profile
               </h1>
               {auth?.data?.role === "admin" ? (
                 <h2 className="text-black">Settings(User)</h2>
               ) : (
                 <h2
-                  className="cursor-pointer text-black text-[15px] p-1"
+                  className="cursor-pointer text-white text-[15px] p-1"
                   onClick={() => {
                     navigate("/dashboard");
                     closeModal();
@@ -96,17 +104,17 @@ const Navbar = () => {
                 </h2>
               )}
               <span
-                className="block text-blue-600 p-2 cursor-pointer hover:underline"
+                className="block text-white p-2 cursor-pointer hover:underline"
                 onClick={handelLogout}
               >
                 Logout
               </span>
-              {}
+
               <button
                 onClick={closeModal} // Close modal on click
                 className="absolute top-0 right-0 p-1 text-black text-2xl"
               >
-                &times;
+                <span className="text-2xl text-white"> &times;</span>
               </button>
             </div>
             {/* Overlay to close modal when clicked outside */}

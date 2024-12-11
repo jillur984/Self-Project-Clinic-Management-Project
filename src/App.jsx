@@ -15,6 +15,7 @@ import SignupPage from "./page/SignupPage";
 import { ToastContainer } from "react-toastify";
 import DoctorEntry from "./auth/DoctorEntry";
 import Internship from "./components/Internship";
+import Profilepage from "./page/Profilepage";
 
 const App = () => {
   return (
@@ -38,6 +39,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/intern" element={<Internship />} />
           <Route path="/login" element={<Loginpage />} />
+          <Route path="/profile" element={<Profilepage />} />
         </Routes>
         <Footer />
         <ToastContainer theme="dark" />
