@@ -1,5 +1,5 @@
 import MedicalImage from "../assets/medical.webp";
-import Care from "../components/Care";
+import AllMember from "../components/AllMember";
 import Service from "../components/Service";
 const Homepage = () => {
   return (
@@ -16,7 +16,7 @@ const Homepage = () => {
             <img src={MedicalImage} alt="" className="w-full h-96" />
           </div>
         </div>
-        <Care />
+        <AllMember />
         <div>
           <Service />
         </div>

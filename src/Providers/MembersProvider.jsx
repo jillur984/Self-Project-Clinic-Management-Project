@@ -9,7 +9,7 @@ const MembersProvider = ({ children }) => {
     const fetchMembers = async () => {
       try {
         const response = await axios.get(
-          `${import.meta.env.VITE_SERVER_BASE_URL}/members/local`
+          `${import.meta.env.VITE_SERVER_BASE_URL}/members/local?size=60`
         );
         if (response.status === 200) {
           setMembers(response.data);

@@ -41,7 +41,7 @@ const Profilepage = () => {
               className="basis-[5%]"
               onClick={() => setShowForm(!showForm)}
             >
-              <HiArrowDown className="text-3xl text-ye" />
+              <HiArrowDown className="text-3xl text-yellow" />
             </button>
           </div>
 

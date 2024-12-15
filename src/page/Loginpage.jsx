@@ -19,12 +19,14 @@ const Loginpage = () => {
                 />
               </div>
               <h2 className="text-2xl text-blue-600">
-                <span className="text-purple-800 text-2xl">Popular</span> Diaganostic
-                Center
+                <span className="text-purple-800 text-2xl">Popular</span>{" "}
+                Diaganostic Center
               </h2>
             </div>
             <h2 className="text-justify font-bold text-slate-500 mx-6 mt-4   ">
-              Popular Diaganostic is very famouse Diaganostic in the bangladesh. situated in beside Mymensingh medical colledge. Our other branch is Habiganj,Sylhet,Bangladesh
+              Popular Diaganostic is very famouse Diaganostic in the bangladesh.
+              situated in beside Mymensingh medical colledge. Our other branch
+              is Habiganj,Sylhet,Bangladesh
             </h2>
             <div className="mt-8">
               <img src={ClinicLogo} className="w-full p-5 mx-auto" />

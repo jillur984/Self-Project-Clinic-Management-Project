@@ -6,11 +6,16 @@ import { IoMdClose } from "react-icons/io";
 import { useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { useMembers } from "../hooks/useMembers";
+import logoImage from "../assets/logo.png";
 
 const Navbar = () => {
   const { auth, setAuth } = useAuth();
+  console.log(auth);
   const { members } = useMembers();
 
+  const [member] = members?.data || []; // members is array of Object .. I just destructure array of Object and keep an array variable. SO i no need map function
+
+  console.log(member);
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -32,17 +37,30 @@ const Navbar = () => {
     setModalOpen(false);
   };
 
-  const handleProfile = () => {
-    navigate("/profile");
+  const currentMember = member?.id === auth?.data?.id;
+
+  console.log(currentMember);
+
+  console.log();
+
+  const handleProfile = (email, username, phone) => {
+    console.log(email, username, phone);
+    navigate("/profile", { state: { email, username, phone } });
     setModalOpen(false);
   };
 
   return (
     <>
       {/* Desktop Navigation */}
-      <div className=" text-white container">
+      <div className=" text-white container bg-fuchsia-700  ">
         <nav className="hidden md:flex justify-end items-center shadow-md navbar">
-          <ul className="flex gap-6 m-4 font-semibold ">
+          {/* <hr className="w-full dark:text-gray-600" /> */}
+          <img
+            src={logoImage}
+            alt=""
+            className="h-10 w-10 animate-spin justify-start"
+          />
+          <ul className="flex gap-6 m-4 font-semibold  ">
             <li className="hover:bg-white hover:text-black p-2 rounded-sm transition duration-300 ">
               <Link to="/">Home</Link>
             </li>
@@ -86,7 +104,9 @@ const Navbar = () => {
             <div className="fixed top-10 right-16 bg-black border rounded-md shadow-lg p-2 w-48 z-50">
               <h1
                 className="text-md p-2 font-bold mb-2 cursor-pointer"
-                onClick={handleProfile}
+                onClick={() =>
+                  handleProfile(member?.email, member?.username, member?.phone)
+                }
               >
                 My Profile
               </h1>

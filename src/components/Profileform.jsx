@@ -1,4 +1,11 @@
+import { useLocation } from "react-router-dom";
+
 const Profileform = () => {
+  const location = useLocation();
+  const { email, username, phone } = location.state || {};
+
+  console.log(phone);
+
   return (
     <>
       <form className="space-y-6">
@@ -11,6 +18,7 @@ const Profileform = () => {
             <input
               type="email"
               id="email"
+              defaultValue={email}
               className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
@@ -18,23 +26,12 @@ const Profileform = () => {
           {/* First Name Field */}
           <div className="basis-[23%] flex flex-col">
             <label htmlFor="firstname" className="text-lg font-medium mb-2">
-              First Name
+              Full Name
             </label>
             <input
               type="text"
               id="firstname"
-              className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-            />
-          </div>
-
-          {/* Last Name Field */}
-          <div className="basis-[23%] flex flex-col">
-            <label htmlFor="lastname" className="text-lg font-medium mb-2">
-              Last Name
-            </label>
-            <input
-              type="text"
-              id="lastname"
+              value={username}
               className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
@@ -47,7 +44,19 @@ const Profileform = () => {
             <input
               type="number"
               id="mobile"
+              defaultValue={phone}
               className="p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            />
+          </div>
+
+          <div className="basis-[23%] flex flex-col">
+            <label htmlFor="email" className="text-lg font-medium mb-2">
+              Image
+            </label>
+            <input
+              type="file"
+              id="file"
+              className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
             />
           </div>
         </div>
