@@ -52,7 +52,7 @@ const Navbar = () => {
   return (
     <>
       {/* Desktop Navigation */}
-      <div className=" text-white container bg-gray-700  ">
+      <div className=" text-white shadow-md container bg-gray-700  ">
         <nav className="hidden md:flex justify-end items-center shadow-md navbar">
           {/* <hr className="w-full dark:text-gray-600" /> */}
           <img
