@@ -52,7 +52,7 @@ const SignupPage = () => {
     <>
       <div className="container grid  justify-center grid-cols-1 md:grid-cols-2 gap-5">
         <div className="">
-          <img src={SignupImage} alt="Sign Up" className="rounded mt-5 mb-5" />
+          <img src={SignupImage} alt="Sign Up" className="rounded  mt-5 mb-5" />
         </div>
         <div className="order-1 md:order-2 mt-5 ">
           <h1 className="text-center text-2xl font-bold ">SIGN UP</h1>

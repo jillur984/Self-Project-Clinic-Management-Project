@@ -30,7 +30,7 @@ const Homepage = () => {
           autoPlay
           infiniteLoop
           dynamicHeight={true}
-          showThumbs={true}
+          showThumbs={false}
           thumbWidth={100}
           stopOnHover={true}
         >

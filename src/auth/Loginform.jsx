@@ -44,11 +44,11 @@ const Loginform = () => {
   };
 
   return (
-    <div className="mt-16 mx-auto w-full bg-white p-8 shadow-md rounded-lg mr-10">
-      <h1 className="text-3xl font-semibold text-gray-800 mb-4 text-center">
+    <div className="mt-16 mx-auto w-full p-8 shadow-md rounded-lg mr-10">
+      <h1 className="text-3xl font-semibold text-white mb-4 text-center">
         Login to Your Account
       </h1>
-      <p className="text-gray-500 font-light text-center mb-8">
+      <p className="text-white font-light text-center mb-8">
         Welcome back! Please enter your details.
       </p>
 
@@ -57,7 +57,7 @@ const Loginform = () => {
         <div>
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-700 mb-1"
+            className="block text-sm font-medium text-white mb-1"
           >
             Email
           </label>
@@ -81,7 +81,7 @@ const Loginform = () => {
         <div>
           <label
             htmlFor="password"
-            className="block text-sm font-medium text-gray-700 mb-1"
+            className="block text-sm font-medium text-white mb-1"
           >
             Password
           </label>
