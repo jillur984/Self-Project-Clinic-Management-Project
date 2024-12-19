@@ -10,12 +10,11 @@ import logoImage from "../assets/logo.png";
 
 const Navbar = () => {
   const { auth, setAuth } = useAuth();
-  console.log(auth);
   const { members } = useMembers();
 
   const [member] = members?.data || []; // members is array of Object .. I just destructure array of Object and keep an array variable. SO i no need map function
 
-  console.log(member);
+  // console.log(member);
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -37,9 +36,9 @@ const Navbar = () => {
     setModalOpen(false);
   };
 
-  const currentMember = member?.id === auth?.data?.id;
+  // const currentMember = member?.id === auth?.data?.id;
 
-  console.log(currentMember);
+  // console.log(currentMember);
 
   console.log();
 

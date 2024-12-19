@@ -23,7 +23,7 @@ const AllMember = () => {
     setSearchQuery(newSearchQuery);
   };
 
-  console.log(searchQuery);
+  // console.log(searchQuery);
 
   return (
     <>
@@ -36,6 +36,7 @@ const AllMember = () => {
         TotalPages={TotalPages}
         currentRecords={currentRecords}
         currentPage={currentPage}
+        recordsPerPage={recordsPerPage}
         setCurrentPage={setCurrentPage}
         members={members}
         searchQuery={searchQuery}

@@ -1,7 +1,5 @@
 import Nurse from "../assets/demo-nurse.webp";
-const MemberCard = ({ memberItem, searchData }) => {
-  console.log(searchData);
-
+const MemberCard = ({ memberItem }) => {
   return (
     <>
       <div className="bg-white text-black rounded-lg shadow-lg w-60">

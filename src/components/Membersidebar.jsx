@@ -7,31 +7,35 @@ const Membersidebar = ({
   TotalPages,
   currentRecords,
   currentPage,
+  recordsPerPage,
   setCurrentPage,
   searchQuery,
 }) => {
-  const [searchData, setSearchData] = useState("");
+  const [searchData, setSearchData] = useState([]);
+
+  console.log(searchData);
 
   useEffect(() => {
     const fetchSearchData = async () => {
       try {
+        const query = searchQuery.trim()
+          ? `?search_term=${searchQuery}&page=${currentPage}&size=${recordsPerPage}`
+          : `?page=${currentPage}&size=${recordsPerPage}`;
         const response = await axios.get(
-          `${
-            import.meta.env.VITE_SERVER_BASE_URL
-          }/members/local/?search_term=${searchQuery}`
+          `${import.meta.env.VITE_SERVER_BASE_URL}/members/local/${query}`
         );
         if (response.status === 200) {
-          setSearchData(response.data);
+          setSearchData(response?.data?.data || []);
         }
+
+        console.log(response.data?.data);
       } catch (err) {
         console.log(err.message);
       }
     };
 
-    if (searchQuery.trim()) {
-      fetchSearchData();
-    }
-  }, [searchQuery, searchData]);
+    fetchSearchData();
+  }, [searchQuery, currentPage, recordsPerPage]);
 
   return (
     <>
@@ -65,14 +69,8 @@ const Membersidebar = ({
         </aside>
         <div className="flex-grow pl-4 p-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            {currentRecords?.map((memberItem) => {
-              return (
-                <MemberCard
-                  key={memberItem.id}
-                  searchData={searchData}
-                  memberItem={memberItem}
-                />
-              );
+            {searchData?.map((memberItem) => {
+              return <MemberCard key={memberItem.id} memberItem={memberItem} />;
             })}
           </div>
 

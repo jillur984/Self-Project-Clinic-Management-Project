@@ -22,7 +22,7 @@ const MembersProvider = ({ children }) => {
     fetchMembers();
   }, []);
 
-  console.log(members);
+  // console.log(members);
 
   return (
     <>
