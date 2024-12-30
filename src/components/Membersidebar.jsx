@@ -4,6 +4,7 @@ import Pagination from "./Pagination";
 import axios from "axios";
 import { useMembers } from "../hooks/useMembers";
 import { handleFilterRole } from "../utils/handleFilterRole";
+import Sidebar from "./Sidebar";
 
 const Membersidebar = ({
   TotalPages,
@@ -13,13 +14,39 @@ const Membersidebar = ({
   setCurrentPage,
   searchQuery,
 }) => {
+  const [doctor, setDoctor] = useState(false);
   const [filteredData, setFilteredData] = useState([]);
-  const [selectedRole, setSelectedRole] = useState();
+  const [selectedRole, setSelectedRole] = useState(null);
 
-  console.log(selectedRole);
-  const { members } = useMembers();
+  console.log(typeof selectedRole);
 
-  // console.log(members?.data);
+  console.log("Hello come from Children", selectedRole);
+
+  // const handleSidebarFilter = async (role) => {
+  //   if (role === "doctor") {
+  //     // Toggle the doctor checkbox state
+  //     setDoctor((prev) => !prev); // Toggle the value of doctor
+
+  //     // Update selectedRole based on the checkbox state
+  //     if (!doctor) {
+  //       setSelectedRole("doctor"); // If checked, set role
+  //     } else {
+  //       setSelectedRole(""); // If unchecked, clear the selected role
+  //     }
+  //   }
+  // };
+
+  const handleSidebarFilter = async (role) => {
+    if (role === "doctor") {
+      // Toggle the doctor checkbox state
+      setDoctor((prev) => {
+        const newDoctorState = !prev; // Get the new state of doctor
+        // Update selectedRole based on the new state of doctor
+        setSelectedRole(newDoctorState ? "doctor" : ""); // If checked, set "doctor", else clear it
+        return newDoctorState; // Return the updated state of doctor
+      });
+    }
+  };
 
   useEffect(() => {
     const fetchSearchData = async () => {
@@ -42,12 +69,13 @@ const Membersidebar = ({
   }, [searchQuery, currentPage, recordsPerPage]);
 
   useEffect(() => {
+    console.log("Line 45", selectedRole);
     const handleFilterRoleData = async (selectedRole) => {
       try {
         const response = await axios.get(
           `${
             import.meta.env.VITE_SERVER_BASE_URL
-          }/members/local/?filter=${selectedRole}`
+          }/members/local/?filter=role:${selectedRole}`
         );
         if (response.status === 200) {
           setFilteredData(response?.data?.data || []);
@@ -59,8 +87,8 @@ const Membersidebar = ({
       }
     };
 
-    handleFilterRoleData();
-  }, [selectedRole]);
+    handleFilterRoleData(selectedRole);
+  }, [selectedRole, doctor]);
 
   return (
     <>
@@ -71,21 +99,15 @@ const Membersidebar = ({
             <input
               type="checkbox"
               id="doctor"
-              value="doctor"
-              onChange={(e) => setSelectedRole(e.target.value)}
+              checked={doctor}
+              onChange={() => handleSidebarFilter("doctor")}
             />
             <label htmlFor="doctor" className="px-1">
               Doctor
             </label>
           </div>
           <div className="mb-2">
-            <input
-              type="checkbox"
-              id="nurse"
-              className=""
-              value="nurse"
-              onChange={(e) => setSelectedRole(e.target.value)}
-            />
+            <input type="checkbox" id="nurse" className="" value="nurse" />
             <label htmlFor="nurse" className="px-1">
               Nurse
             </label>
@@ -93,7 +115,7 @@ const Membersidebar = ({
           <div className="w-full flex items-center mb-2">
             <input
               type="checkbox"
-              id="nurse"
+              id="administrator"
               value="administrator"
               onChange={(e) => setSelectedRole(e.target.value)}
             />
