@@ -22,29 +22,17 @@ const Membersidebar = ({
 
   console.log("Hello come from Children", selectedRole);
 
-  // const handleSidebarFilter = async (role) => {
-  //   if (role === "doctor") {
-  //     // Toggle the doctor checkbox state
-  //     setDoctor((prev) => !prev); // Toggle the value of doctor
-
-  //     // Update selectedRole based on the checkbox state
-  //     if (!doctor) {
-  //       setSelectedRole("doctor"); // If checked, set role
-  //     } else {
-  //       setSelectedRole(""); // If unchecked, clear the selected role
-  //     }
-  //   }
-  // };
-
   const handleSidebarFilter = async (role) => {
     if (role === "doctor") {
       // Toggle the doctor checkbox state
-      setDoctor((prev) => {
-        const newDoctorState = !prev; // Get the new state of doctor
-        // Update selectedRole based on the new state of doctor
-        setSelectedRole(newDoctorState ? "doctor" : ""); // If checked, set "doctor", else clear it
-        return newDoctorState; // Return the updated state of doctor
-      });
+      setDoctor((prev) => !prev); // Toggle the value of doctor
+
+      // Update selectedRole based on the checkbox state
+      if (!doctor) {
+        setSelectedRole("doctor"); // If checked, set role
+      } else {
+        setSelectedRole(""); // If unchecked, clear the selected role
+      }
     }
   };
 
