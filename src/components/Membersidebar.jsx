@@ -26,7 +26,8 @@ const Membersidebar = ({ members, setFilteredRoleData }) => {
   };
 
   useEffect(() => {
-    const handleFilterRoleData = async (keepRole) => {
+    const handleFilterRoleData = async (role) => {
+      if (role.length === 0) return;
       console.log("Selected Role is", keepRole);
       try {
         const response = await axios.get(
@@ -42,7 +43,7 @@ const Membersidebar = ({ members, setFilteredRoleData }) => {
       }
     };
     handleFilterRoleData(keepRole);
-  }, [keepRole]);
+  }, [keepRole, setFilteredRoleData]);
 
   return (
     <>

@@ -42,9 +42,17 @@ const AllMember = () => {
         />
 
         <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-4">
-          {filteredRoleData?.map((memberItem) => {
-            return <MemberCard key={memberItem.id} memberItem={memberItem} />;
-          })}
+          {filteredRoleData.length > 0
+            ? filteredRoleData.map((memberItem) => {
+                return (
+                  <MemberCard key={memberItem.id} memberItem={memberItem} />
+                );
+              })
+            : members?.data?.map((memberItem) => {
+                return (
+                  <MemberCard key={memberItem.id} memberItem={memberItem} />
+                );
+              })}
         </div>
       </div>
       <Pagination />
