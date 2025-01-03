@@ -8,11 +8,12 @@ import Pagination from "./Pagination";
 const AllMember = () => {
   const { members } = useMembers();
 
+  const [filteredRoleData, setFilteredRoleData] = useState([]);
+
+  console.log("Testing", filteredRoleData);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(10);
-
-  // here i keep checkbox and search both data
-  const [filteredData, setFilteredData] = useState();
 
   const indexOfLastRecord = currentPage * recordsPerPage;
   const indexOfFirstRecord = indexOfLastRecord - recordsPerPage;
@@ -22,16 +23,12 @@ const AllMember = () => {
   );
   const TotalPages = Math.ceil(members?.data?.length / recordsPerPage);
 
-  const handleSearchChange = (newSearchQuery) => {
-    setFilteredData(newSearchQuery);
-  };
-
   return (
     <>
       <h1 className="text-center text-3xl text-yellow-400 font-bold mb-6 mt-5">
         All Members
       </h1>
-      <Searchbar onSearchChange={handleSearchChange} />
+      <Searchbar />
 
       <div className="flex gap-5  mt-8">
         <Membersidebar
@@ -41,10 +38,11 @@ const AllMember = () => {
           recordsPerPage={recordsPerPage}
           setCurrentPage={setCurrentPage}
           members={members}
+          setFilteredRoleData={setFilteredRoleData}
         />
 
         <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-4">
-          {members?.data?.map((memberItem) => {
+          {filteredRoleData?.map((memberItem) => {
             return <MemberCard key={memberItem.id} memberItem={memberItem} />;
           })}
         </div>
