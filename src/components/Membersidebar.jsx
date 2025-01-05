@@ -3,9 +3,6 @@ import { useEffect, useState } from "react";
 
 const Membersidebar = ({ members, setFilteredRoleData }) => {
   const [keepRole, setKeepRole] = useState([]);
-  // const [filteredRoleData, setFilteredRoleData] = useState([]);
-
-  // console.log("got data by click checkbox", filteredRoleData);
 
   console.log("Hello Role", keepRole);
 
@@ -23,6 +20,7 @@ const Membersidebar = ({ members, setFilteredRoleData }) => {
         }
       });
     }
+    setFilteredRoleData(members?.data);
   };
 
   useEffect(() => {
