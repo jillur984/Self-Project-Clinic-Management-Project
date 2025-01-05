@@ -1,4 +1,9 @@
-const Pagination = ({ TotalPages, currentPage, setCurrentPage }) => {
+const Pagination = ({
+  TotalPages,
+  currentPage,
+  setCurrentPage,
+  recordsPerPage,
+}) => {
   // Ensure we have at least one page to display
   const pageNumbers =
     TotalPages > 0 ? [...Array(TotalPages).keys()].map((i) => i + 1) : [];

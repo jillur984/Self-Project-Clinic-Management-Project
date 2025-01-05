@@ -21,22 +21,23 @@ const AllMember = () => {
     indexOfFirstRecord,
     indexOfLastRecord
   );
-  const TotalPages = Math.ceil(members?.data?.length / recordsPerPage);
+  // const TotalPages = Math.ceil(members?.data?.length / recordsPerPage);
+  const TotalPages = Math.ceil(filteredRoleData.length / recordsPerPage);
+
+  // here i implement search functionality
+  const handleSearchData = (searchItem) => {
+    setFilteredRoleData(searchItem);
+  };
 
   return (
     <>
       <h1 className="text-center text-3xl text-yellow-400 font-bold mb-6 mt-5">
         All Members
       </h1>
-      <Searchbar />
+      <Searchbar onSearchChange={handleSearchData} />
 
       <div className="flex gap-5  mt-8">
         <Membersidebar
-          TotalPages={TotalPages}
-          currentRecords={currentRecords}
-          currentPage={currentPage}
-          recordsPerPage={recordsPerPage}
-          setCurrentPage={setCurrentPage}
           members={members}
           setFilteredRoleData={setFilteredRoleData}
         />
@@ -55,7 +56,12 @@ const AllMember = () => {
               })}
         </div>
       </div>
-      <Pagination />
+      <Pagination
+        TotalPages={TotalPages}
+        currentRecords={currentRecords}
+        currentPage={currentPage}
+        recordsPerPage={recordsPerPage}
+      />
     </>
   );
 };

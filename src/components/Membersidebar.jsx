@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Membersidebar = ({ members, setFilteredRoleData }) => {
+const Membersidebar = ({ members, setFilteredRoleData, recordsPerPage }) => {
   const [keepRole, setKeepRole] = useState([]);
 
   console.log("Hello Role", keepRole);
@@ -31,7 +31,7 @@ const Membersidebar = ({ members, setFilteredRoleData }) => {
         const response = await axios.get(
           `${
             import.meta.env.VITE_SERVER_BASE_URL
-          }/members/local/?filter=role:${keepRole}`
+          }/members/local/?filter=role:${keepRole}&size=${recordsPerPage}`
         );
         if (response.status === 200) {
           setFilteredRoleData(response?.data?.data) || [];
@@ -41,7 +41,7 @@ const Membersidebar = ({ members, setFilteredRoleData }) => {
       }
     };
     handleFilterRoleData(keepRole);
-  }, [keepRole, setFilteredRoleData]);
+  }, [keepRole, setFilteredRoleData, recordsPerPage]);
 
   return (
     <>
