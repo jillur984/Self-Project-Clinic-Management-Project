@@ -1,10 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const Searchbar = ({ onSearchChange }) => {
+const Searchbar = ({ onSearchResults }) => {
   const [searchTerm, setSearchTerm] = useState("");
-
-  console.log(searchTerm);
 
   useEffect(() => {
     const handleSearchData = async (searchDataComeHereBhai) => {
@@ -15,14 +13,19 @@ const Searchbar = ({ onSearchChange }) => {
           }/members/local/?search_term=${searchDataComeHereBhai}`
         );
         if (response.status === 200) {
-          onSearchChange(response?.data?.data);
+          onSearchResults(response.data?.data);
         }
       } catch (error) {
         console.log(error.message);
       }
     };
-    handleSearchData(searchTerm);
-  }, [onSearchChange]);
+
+    if (searchTerm.trim() !== "") {
+      handleSearchData(searchTerm);
+    } else {
+      handleSearchData("");
+    }
+  }, [onSearchResults, searchTerm]);
 
   return (
     <div className="flex justify-center mt-8">

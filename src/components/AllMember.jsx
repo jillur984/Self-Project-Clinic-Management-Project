@@ -10,7 +10,9 @@ const AllMember = () => {
 
   const [filteredRoleData, setFilteredRoleData] = useState([]);
 
-  console.log("Testing", filteredRoleData);
+  const handleSearch = (searchItem) => {
+    console.log(searchItem);
+  };
 
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(10);
@@ -25,16 +27,13 @@ const AllMember = () => {
   const TotalPages = Math.ceil(filteredRoleData.length / recordsPerPage);
 
   // here i implement search functionality
-  const handleSearchData = (searchItem) => {
-    setFilteredRoleData(searchItem);
-  };
 
   return (
     <>
       <h1 className="text-center text-3xl text-yellow-400 font-bold mb-6 mt-5">
         All Members
       </h1>
-      <Searchbar onSearchChange={handleSearchData} />
+      <Searchbar onSearchResults={handleSearch} />
 
       <div className="flex gap-5  mt-8">
         <Membersidebar
